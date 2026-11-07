@@ -1,0 +1,70 @@
+import { useState, useRef } from 'react';
+import type { VideoNode } from '../types';
+
+interface Props {
+  node: VideoNode;
+  videoUrl: string;
+  captionsUrl: string;
+  captionsOn: boolean;
+  onToggleCaptions: () => void;
+}
+
+export default function VideoSlide({ node, videoUrl, captionsUrl, captionsOn, onToggleCaptions }: Props) {
+  const [vidErr, setVidErr] = useState(false);
+  const [retrying, setRetrying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const retry = () => {
+    setVidErr(false);
+    setRetrying(true);
+    setTimeout(() => setRetrying(false), 100);
+  };
+
+  return (
+    <div className="main-card slide-enter" style={{ maxWidth: 760, width: '100%', padding: 48 }}>
+      <span id="vid-badge" className="step-badge" style={{ marginBottom: 20, display: 'inline-block' }}>{node.step_badge}</span>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 220px', gap: 24 }}>
+        <div className="video-wrap">
+          {!vidErr && !retrying ? (
+            <video
+              ref={videoRef}
+              controls
+              style={{ width: '100%', height: '100%' }}
+              onError={() => setVidErr(true)}
+            >
+              <source src={videoUrl} type="video/mp4" />
+              {captionsOn && <track default kind="captions" src={captionsUrl} />}
+            </video>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', gap: 12 }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span style={{ fontSize: 13, color: '#94a3b8' }}>Video failed to load</span>
+              <button onClick={retry} style={{ fontSize: 12, color: '#C4B5FD', background: 'none', border: '1px solid #334155', borderRadius: 20, padding: '5px 14px', cursor: 'pointer' }}>↺ Retry</button>
+            </div>
+          )}
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <div className="quote-card">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(107,70,193,0.4)" style={{ marginBottom: 8 }}><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+            <p id="vid-quote" style={{ fontSize: 16, fontWeight: 600, color: '#f1f5f9', lineHeight: 1.5, margin: '0 0 12px' }}>{node.quote}</p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--purple)"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span style={{ fontSize: 11, color: '#94a3b8' }}>Customer — 00:12</span>
+            </div>
+          </div>
+          <div className="callout">
+            <p id="vid-watch-listen-title" style={{ fontSize: 11, fontWeight: 700, color: 'var(--purple)', letterSpacing: '0.06em', textTransform: 'uppercase', margin: '0 0 6px' }}>{node.watch_listen_title}</p>
+            <p id="vid-watch-listen-body" style={{ fontSize: 12, color: 'var(--text-2)', lineHeight: 1.6, margin: 0 }}>{node.watch_listen_body}</p>
+          </div>
+          <button
+            onClick={onToggleCaptions}
+            style={{ fontSize: 11, color: captionsOn ? 'var(--purple)' : 'var(--text-3)', background: captionsOn ? 'rgba(107,70,193,0.08)' : 'var(--surface2)', border: `1px solid ${captionsOn ? 'rgba(107,70,193,0.25)' : 'var(--border2)'}`, borderRadius: 8, padding: '6px 10px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 5 }}
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M12 20v-4"/><path d="M6 6V4"/><path d="M18 6V4"/></svg>
+            CC {captionsOn ? 'ON' : 'OFF'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,6 @@
+/* Import our existing app.css design tokens and component styles */
+@import '../static/css/app.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

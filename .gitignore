@@ -6,6 +6,7 @@ node_modules/
 .claude/
 *.egg-info/
 dist/
+!static/dist/
 
 # Claude / AI tooling
 CLAUDE.md

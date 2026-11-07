@@ -1,42 +1,79 @@
 {
+  "start_node_id": "context",
   "en": {
-    "slides": {
+    "nodes": {
       "context": {
+        "type": "context",
+        "next_node_id": "text_image",
         "step_badge": "1 Context",
         "title": "A new customer opportunity",
-        "body": "You lead SchoolSims. A college requests a new feature before signing. Your team has limited capacity. Your learning objective is to weigh near-term revenue against delivery capacity and customer trust."
+        "body": "You lead SchoolSims. A college requests a new feature before signing. Your team has limited capacity. Your learning objective is to weigh near-term revenue against delivery capacity and customer trust.",
+        "learning_objective_label": "Learning Objective",
+        "learning_objective_body": "Weigh near-term revenue against delivery capacity and customer trust."
       },
       "text_image": {
+        "type": "text_image",
+        "next_node_id": "video",
         "step_badge": "2 Text and image",
         "title": "The customer request",
         "body": "The college wants the feature in four weeks. Your developers already have commitments.",
         "character_name": "Jordan Chen",
         "character_title": "VP of Digital Learning",
-        "character_alt": "Portrait of Jordan Chen"
+        "character_alt": "Portrait of Jordan Chen, VP of Digital Learning",
+        "ti_point1": "4-week delivery timeline requested",
+        "ti_point2": "Development team already at capacity"
       },
       "video": {
+        "type": "video",
+        "next_node_id": "decision",
         "step_badge": "3 Video",
-        "quote": "Can we commit to four weeks?"
+        "quote": "Can we commit to four weeks?",
+        "watch_listen_title": "Watch & Listen",
+        "watch_listen_body": "Pay attention to the customer's urgency. It shapes the decision pressure you'll feel on the next slide."
       },
       "decision": {
+        "type": "decision",
+        "next_node_id": null,
         "step_badge": "4 Decision",
         "prompt": "What will you do?",
-        "option_a": "A Commit to the deadline",
-        "option_b": "B Propose a phased pilot"
+        "keyboard_hint": "Press [A] or [B] to decide",
+        "choices": [
+          { "id": "A", "label": "A Commit to the deadline", "target_node_id": "outcome_a" },
+          { "id": "B", "label": "B Propose a phased pilot", "target_node_id": "outcome_b" }
+        ]
       },
       "outcome_a": {
+        "type": "outcome",
+        "next_node_id": "summary",
         "step_badge": "5A Outcome A",
+        "you_chose": "You chose A",
         "title": "Delivery pressure",
-        "body": "The customer agrees. Your team must renegotiate existing commitments."
+        "body": "The customer agrees. Your team must renegotiate existing commitments.",
+        "impacts": [
+          { "key": "revenue", "label": "Revenue", "direction": "up",   "body": "Near-term deal secured with the college" },
+          { "key": "capacity","label": "Capacity","direction": "down", "body": "Team overextended, commitments renegotiated" },
+          { "key": "trust",   "label": "Trust",   "direction": "mid",  "body": "At risk if delivery slips under pressure" }
+        ]
       },
       "outcome_b": {
+        "type": "outcome",
+        "next_node_id": "summary",
         "step_badge": "5B Outcome B",
+        "you_chose": "You chose B",
         "title": "A smaller first step",
-        "body": "The customer reviews a limited pilot with an agreed scope and timeline."
+        "body": "The customer reviews a limited pilot with an agreed scope and timeline.",
+        "impacts": [
+          { "key": "revenue", "label": "Revenue", "direction": "mid",  "body": "Slower to close — pilot first, full deal later" },
+          { "key": "capacity","label": "Capacity","direction": "up",   "body": "Existing commitments preserved" },
+          { "key": "trust",   "label": "Trust",   "direction": "up",   "body": "Transparent expectation-setting builds trust" }
+        ]
       },
       "summary": {
+        "type": "summary",
+        "next_node_id": null,
         "step_badge": "6 Summary",
         "title": "Reflect on your decision",
+        "reflection_prompt_label": "Reflection Prompt",
         "question": "How did your choice balance revenue, capacity and trust?"
       }
     },
@@ -47,30 +84,14 @@
       "restart_btn": "Restart Simulation",
       "lang_label": "Language",
       "eth_label": "Character Ethnicity",
+      "eth_black": "Black",
+      "eth_east_asian": "East Asian",
+      "lang_en": "English",
+      "lang_es": "Español",
       "sim_title": "Leadership Decision Simulation",
       "setup_subtitle": "Experience realistic leadership scenarios and develop critical decision-making skills in a safe, reflective environment.",
       "before_you_begin_title": "Before You Begin",
       "before_you_begin_body": "This is a safe environment to practice. There's no single right answer — explore both paths to understand the full range of trade-offs.",
-      "learning_objective_label": "Learning Objective",
-      "learning_objective_body": "Weigh near-term revenue against delivery capacity and customer trust.",
-      "ti_point1": "4-week delivery timeline requested",
-      "ti_point2": "Development team already at capacity",
-      "watch_listen_title": "Watch & Listen",
-      "watch_listen_body": "Pay attention to the customer's urgency. It shapes the decision pressure you'll feel on the next slide.",
-      "keyboard_hint": "Press [A] or [B] to decide",
-      "you_chose_a": "You chose A",
-      "you_chose_b": "You chose B",
-      "option_label": "Option",
-      "reflection_prompt_label": "Reflection Prompt",
-      "revenue": "Revenue",
-      "capacity": "Capacity",
-      "trust": "Trust",
-      "oa_revenue_body": "Near-term deal secured with the college",
-      "oa_capacity_body": "Team overextended, commitments renegotiated",
-      "oa_trust_body": "At risk if delivery slips under pressure",
-      "ob_revenue_body": "Slower to close — pilot first, full deal later",
-      "ob_capacity_body": "Existing commitments preserved",
-      "ob_trust_body": "Transparent expectation-setting builds trust",
       "sim_error_title": "Failed to load simulation",
       "sim_error_body": "Could not connect to the simulation service. Please check your connection and try again.",
       "retry_btn": "Retry",
@@ -87,47 +108,88 @@
       "help_no_right_title": "No Single Right Answer",
       "help_no_right_body": "Both options involve real trade-offs. Reflect on your reasoning.",
       "help_replay_title": "Play Multiple Times",
-      "help_replay_body": "Try both paths to understand the full range of consequences."
+      "help_replay_body": "Try both paths to understand the full range of consequences.",
+      "rail_brief_tip": "Brief",
+      "rail_cast_tip": "Cast",
+      "rail_help_tip": "Help",
+      "badge_en": "EN",
+      "option_label": "Option"
     }
   },
   "es": {
-    "slides": {
+    "nodes": {
       "context": {
+        "type": "context",
+        "next_node_id": "text_image",
         "step_badge": "1 Contexto",
         "title": "Una nueva oportunidad de cliente",
-        "body": "Lideras SchoolSims. Una universidad solicita una nueva función antes de firmar. Tu equipo tiene capacidad limitada. Tu objetivo de aprendizaje es sopesar los ingresos a corto plazo frente a la capacidad de entrega y la confianza del cliente."
+        "body": "Lideras SchoolSims. Una universidad solicita una nueva función antes de firmar. Tu equipo tiene capacidad limitada. Tu objetivo de aprendizaje es sopesar los ingresos a corto plazo frente a la capacidad de entrega y la confianza del cliente.",
+        "learning_objective_label": "Objetivo de aprendizaje",
+        "learning_objective_body": "Sopesar los ingresos a corto plazo frente a la capacidad de entrega y la confianza del cliente."
       },
       "text_image": {
+        "type": "text_image",
+        "next_node_id": "video",
         "step_badge": "2 Texto e imagen",
         "title": "La solicitud del cliente",
         "body": "La universidad quiere la función en cuatro semanas. Tus desarrolladores ya tienen compromisos.",
         "character_name": "Jordan Chen",
         "character_title": "VP de Aprendizaje Digital",
-        "character_alt": "Retrato de Jordan Chen"
+        "character_alt": "Retrato de Jordan Chen, VP de Aprendizaje Digital",
+        "ti_point1": "Plazo de entrega de 4 semanas solicitado",
+        "ti_point2": "El equipo de desarrollo ya está a plena capacidad"
       },
       "video": {
+        "type": "video",
+        "next_node_id": "decision",
         "step_badge": "3 Video",
-        "quote": "¿Podemos comprometernos a cuatro semanas?"
+        "quote": "¿Podemos comprometernos a cuatro semanas?",
+        "watch_listen_title": "Mira y escucha",
+        "watch_listen_body": "Presta atención a la urgencia del cliente. Determinará la presión de decisión que sentirás en la siguiente diapositiva."
       },
       "decision": {
+        "type": "decision",
+        "next_node_id": null,
         "step_badge": "4 Decisión",
         "prompt": "¿Qué harás?",
-        "option_a": "A Comprometerse con la fecha límite",
-        "option_b": "B Proponer un piloto por fases"
+        "keyboard_hint": "Presiona [A] o [B] para decidir",
+        "choices": [
+          { "id": "A", "label": "A Comprometerse con la fecha límite", "target_node_id": "outcome_a" },
+          { "id": "B", "label": "B Proponer un piloto por fases", "target_node_id": "outcome_b" }
+        ]
       },
       "outcome_a": {
+        "type": "outcome",
+        "next_node_id": "summary",
         "step_badge": "5A Resultado A",
+        "you_chose": "Elegiste A",
         "title": "Presión de entrega",
-        "body": "El cliente acepta. Tu equipo debe renegociar los compromisos existentes."
+        "body": "El cliente acepta. Tu equipo debe renegociar los compromisos existentes.",
+        "impacts": [
+          { "key": "revenue", "label": "Ingresos",  "direction": "up",   "body": "Acuerdo a corto plazo asegurado con la universidad" },
+          { "key": "capacity","label": "Capacidad", "direction": "down", "body": "Equipo sobrecargado, compromisos renegociados" },
+          { "key": "trust",   "label": "Confianza", "direction": "mid",  "body": "En riesgo si la entrega se retrasa bajo presión" }
+        ]
       },
       "outcome_b": {
+        "type": "outcome",
+        "next_node_id": "summary",
         "step_badge": "5B Resultado B",
+        "you_chose": "Elegiste B",
         "title": "Un primer paso más pequeño",
-        "body": "El cliente revisa un piloto limitado con un alcance y cronograma acordados."
+        "body": "El cliente revisa un piloto limitado con un alcance y cronograma acordados.",
+        "impacts": [
+          { "key": "revenue", "label": "Ingresos",  "direction": "mid",  "body": "Más lento de cerrar — primero el piloto, luego el acuerdo completo" },
+          { "key": "capacity","label": "Capacidad", "direction": "up",   "body": "Los compromisos existentes se mantienen" },
+          { "key": "trust",   "label": "Confianza", "direction": "up",   "body": "Establecer expectativas transparentes genera confianza" }
+        ]
       },
       "summary": {
+        "type": "summary",
+        "next_node_id": null,
         "step_badge": "6 Resumen",
         "title": "Reflexiona sobre tu decisión",
+        "reflection_prompt_label": "Pregunta de reflexión",
         "question": "¿Cómo equilibró tu elección los ingresos, la capacidad y la confianza?"
       }
     },
@@ -138,30 +200,14 @@
       "restart_btn": "Reiniciar simulación",
       "lang_label": "Idioma",
       "eth_label": "Etnia del personaje",
+      "eth_black": "Negro",
+      "eth_east_asian": "Asiático oriental",
+      "lang_en": "English",
+      "lang_es": "Español",
       "sim_title": "Simulación de Decisión de Liderazgo",
       "setup_subtitle": "Experimenta escenarios de liderazgo realistas y desarrolla habilidades críticas de toma de decisiones en un entorno seguro y reflexivo.",
       "before_you_begin_title": "Antes de comenzar",
       "before_you_begin_body": "Este es un entorno seguro para practicar. No hay una sola respuesta correcta — explora ambos caminos para comprender toda la gama de compensaciones.",
-      "learning_objective_label": "Objetivo de aprendizaje",
-      "learning_objective_body": "Sopesar los ingresos a corto plazo frente a la capacidad de entrega y la confianza del cliente.",
-      "ti_point1": "Plazo de entrega de 4 semanas solicitado",
-      "ti_point2": "El equipo de desarrollo ya está a plena capacidad",
-      "watch_listen_title": "Mira y escucha",
-      "watch_listen_body": "Presta atención a la urgencia del cliente. Determinará la presión de decisión que sentirás en la siguiente diapositiva.",
-      "keyboard_hint": "Presiona [A] o [B] para decidir",
-      "you_chose_a": "Elegiste A",
-      "you_chose_b": "Elegiste B",
-      "option_label": "Opción",
-      "reflection_prompt_label": "Pregunta de reflexión",
-      "revenue": "Ingresos",
-      "capacity": "Capacidad",
-      "trust": "Confianza",
-      "oa_revenue_body": "Acuerdo a corto plazo asegurado con la universidad",
-      "oa_capacity_body": "Equipo sobrecargado, compromisos renegociados",
-      "oa_trust_body": "En riesgo si la entrega se retrasa bajo presión",
-      "ob_revenue_body": "Más lento de cerrar — primero el piloto, luego el acuerdo completo",
-      "ob_capacity_body": "Los compromisos existentes se mantienen",
-      "ob_trust_body": "Establecer expectativas transparentes genera confianza",
       "sim_error_title": "Error al cargar la simulación",
       "sim_error_body": "No se pudo conectar al servicio de simulación. Verifica tu conexión e inténtalo de nuevo.",
       "retry_btn": "Reintentar",
@@ -178,7 +224,12 @@
       "help_no_right_title": "No hay una sola respuesta correcta",
       "help_no_right_body": "Ambas opciones implican compensaciones reales. Reflexiona sobre tu razonamiento.",
       "help_replay_title": "Juega varias veces",
-      "help_replay_body": "Prueba ambos caminos para comprender toda la gama de consecuencias."
+      "help_replay_body": "Prueba ambos caminos para comprender toda la gama de consecuencias.",
+      "rail_brief_tip": "Resumen",
+      "rail_cast_tip": "Reparto",
+      "rail_help_tip": "Ayuda",
+      "badge_en": "ES",
+      "option_label": "Opción"
     }
   }
 }
