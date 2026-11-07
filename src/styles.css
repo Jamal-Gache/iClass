@@ -1,5 +1,5 @@
 /* Import our existing app.css design tokens and component styles */
-@import '../static/css/app.css';
+@import './app.css';
 
 @tailwind base;
 @tailwind components;

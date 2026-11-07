@@ -12,7 +12,7 @@ export default function SummarySlide({ node, chosenNode, optionLabel, restartLab
   return (
     <div className="main-card slide-enter" style={{ maxWidth: 760, width: '100%', padding: 48 }}>
       <span className="step-badge" style={{ marginBottom: 20, display: 'inline-block' }}>{node.step_badge}</span>
-      <h2 style={{ fontSize: 28, fontWeight: 700, color: 'var(--text-1)', margin: '0 0 24px', letterSpacing: '-0.3px' }}>{node.title}</h2>
+      <h2 id="sum-title" style={{ fontSize: 28, fontWeight: 700, color: 'var(--text-1)', margin: '0 0 24px', letterSpacing: '-0.3px' }}>{node.title}</h2>
 
       {chosenNode && (
         <div id="sum-recap" style={{ marginBottom: 24 }}>

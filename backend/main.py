@@ -1,3 +1,4 @@
+from pathlib import Path
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -5,9 +6,12 @@ from pydantic import BaseModel
 from typing import Any
 import json, copy
 
+BASE_DIR = Path(__file__).parent
+DIST_DIR = BASE_DIR.parent / "dist"
+
 app = FastAPI(title="SchoolSims Player")
 
-with open("scenario.json") as f:
+with open(BASE_DIR / "scenario.json") as f:
     SCENARIO: dict = json.load(f)
 
 VALID_LANGS = {"en", "es"}
@@ -34,9 +38,9 @@ def get_simulation(
         "nodes": SCENARIO[lang]["nodes"],
         "ui": SCENARIO[lang]["ui"],
         "media": {
-            "photo": f"/static/{ethnicity}_photo.jpg",
-            "video_template": f"/static/{ethnicity}_{{lang}}.mp4",
-            "photo_alt": f"Character portrait",
+            "photo": f"/assets/{ethnicity}_photo.jpg",
+            "video_template": f"/assets/{ethnicity}_{lang}.mp4",
+            "photo_alt": "Character portrait",
         },
     }
 
@@ -58,21 +62,19 @@ def save_scenario(lang: str, body: ScenarioUpdate):
     updated[lang]["nodes"] = body.nodes
     updated[lang]["ui"] = body.ui
     updated["start_node_id"] = body.start_node_id
-    with open("scenario.json", "w") as f:
+    with open(BASE_DIR / "scenario.json", "w") as f:
         json.dump(updated, f, indent=2, ensure_ascii=False)
     SCENARIO = updated
     return {"ok": True}
 
 
-app.mount("/assets", StaticFiles(directory="static/dist/assets"), name="dist-assets")
-app.mount("/static", StaticFiles(directory="static"), name="static")
+if DIST_DIR.exists():
+    app.mount("/assets", StaticFiles(directory=str(DIST_DIR / "assets")), name="assets")
 
+    @app.get("/")
+    def serve_index():
+        return FileResponse(str(DIST_DIR / "index.html"))
 
-@app.get("/")
-def serve_index():
-    return FileResponse("static/dist/index.html")
-
-
-@app.get("/{full_path:path}")
-def catch_all(full_path: str):
-    return FileResponse("static/dist/index.html")
+    @app.get("/{full_path:path}")
+    def catch_all(full_path: str):
+        return FileResponse(str(DIST_DIR / "index.html"))

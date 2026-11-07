@@ -174,7 +174,7 @@ export default function App() {
             <VideoSlide
               node={currentNode}
               videoUrl={simData.media.video_template.replace('{lang}', lang)}
-              captionsUrl={`/static/captions_${lang}.vtt`}
+              captionsUrl={`/assets/captions_${lang}.vtt`}
               captionsOn={captionsOn}
               onToggleCaptions={() => setCaptionsOn(c => !c)}
             />
@@ -253,7 +253,7 @@ export default function App() {
             </div>
           )}
           {modal === 'help' && ui && (
-            <div className="modal-panel modal-enter" style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '100%', maxWidth: 420, padding: 28, zIndex: 50 }}>
+            <div id="modal-help" className="modal-panel modal-enter" style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '100%', maxWidth: 420, padding: 28, zIndex: 50 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
                 <h3 style={{ fontSize: 16, fontWeight: 700, color: 'var(--text-1)', margin: 0 }}>{ui.help_panel_title}</h3>
                 <button onClick={() => setModal(null)} className="rail-btn" style={{ width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
