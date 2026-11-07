@@ -1,0 +1,104 @@
+{
+  "en": {
+    "slides": {
+      "context": {
+        "step_badge": "1 Context",
+        "title": "A new customer opportunity",
+        "body": "You lead SchoolSims. A college requests a new feature before signing. Your team has limited capacity. Your learning objective is to weigh near-term revenue against delivery capacity and customer trust."
+      },
+      "text_image": {
+        "step_badge": "2 Text and image",
+        "title": "The customer request",
+        "body": "The college wants the feature in four weeks. Your developers already have commitments.",
+        "character_name": "Jordan Chen",
+        "character_title": "VP of Digital Learning",
+        "character_alt": "Portrait of Jordan Chen"
+      },
+      "video": {
+        "step_badge": "3 Video",
+        "quote": "Can we commit to four weeks?"
+      },
+      "decision": {
+        "step_badge": "4 Decision",
+        "prompt": "What will you do?",
+        "option_a": "A Commit to the deadline",
+        "option_b": "B Propose a phased pilot"
+      },
+      "outcome_a": {
+        "step_badge": "5A Outcome A",
+        "title": "Delivery pressure",
+        "body": "The customer agrees. Your team must renegotiate existing commitments."
+      },
+      "outcome_b": {
+        "step_badge": "5B Outcome B",
+        "title": "A smaller first step",
+        "body": "The customer reviews a limited pilot with an agreed scope and timeline."
+      },
+      "summary": {
+        "step_badge": "6 Summary",
+        "title": "Reflect on your decision",
+        "question": "How did your choice balance revenue, capacity and trust?"
+      }
+    },
+    "ui": {
+      "start_btn": "Start Simulation",
+      "back_btn": "Back",
+      "next_btn": "Next",
+      "restart_btn": "Restart Simulation",
+      "lang_label": "Language",
+      "eth_label": "Character Ethnicity",
+      "sim_title": "Leadership Decision Simulation"
+    }
+  },
+  "es": {
+    "slides": {
+      "context": {
+        "step_badge": "1 Contexto",
+        "title": "Una nueva oportunidad de cliente",
+        "body": "Lideras SchoolSims. Una universidad solicita una nueva función antes de firmar. Tu equipo tiene capacidad limitada. Tu objetivo de aprendizaje es sopesar los ingresos a corto plazo frente a la capacidad de entrega y la confianza del cliente."
+      },
+      "text_image": {
+        "step_badge": "2 Texto e imagen",
+        "title": "La solicitud del cliente",
+        "body": "La universidad quiere la función en cuatro semanas. Tus desarrolladores ya tienen compromisos.",
+        "character_name": "Jordan Chen",
+        "character_title": "VP de Aprendizaje Digital",
+        "character_alt": "Retrato de Jordan Chen"
+      },
+      "video": {
+        "step_badge": "3 Video",
+        "quote": "¿Podemos comprometernos a cuatro semanas?"
+      },
+      "decision": {
+        "step_badge": "4 Decisión",
+        "prompt": "¿Qué harás?",
+        "option_a": "A Comprometerse con la fecha límite",
+        "option_b": "B Proponer un piloto por fases"
+      },
+      "outcome_a": {
+        "step_badge": "5A Resultado A",
+        "title": "Presión de entrega",
+        "body": "El cliente acepta. Tu equipo debe renegociar los compromisos existentes."
+      },
+      "outcome_b": {
+        "step_badge": "5B Resultado B",
+        "title": "Un primer paso más pequeño",
+        "body": "El cliente revisa un piloto limitado con un alcance y cronograma acordados."
+      },
+      "summary": {
+        "step_badge": "6 Resumen",
+        "title": "Reflexiona sobre tu decisión",
+        "question": "¿Cómo equilibró tu elección los ingresos, la capacidad y la confianza?"
+      }
+    },
+    "ui": {
+      "start_btn": "Iniciar simulación",
+      "back_btn": "Atrás",
+      "next_btn": "Siguiente",
+      "restart_btn": "Reiniciar simulación",
+      "lang_label": "Idioma",
+      "eth_label": "Etnia del personaje",
+      "sim_title": "Simulación de Decisión de Liderazgo"
+    }
+  }
+}
