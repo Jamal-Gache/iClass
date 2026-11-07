@@ -228,26 +228,32 @@ export default function App() {
             </div>
           )}
           {modal === 'cast' && (
-            <div id="modal-cast" className="modal-panel modal-enter" style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '100%', maxWidth: 320, overflow: 'hidden', zIndex: 50 }}>
-              <div style={{ position: 'relative', padding: '24px 24px 60px', background: 'linear-gradient(135deg,#1e293b,#0f172a)' }}>
-                <button onClick={() => setModal(null)} className="rail-btn" style={{ position: 'absolute', top: 12, right: 12, width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8' }}>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <div id="modal-cast" className="modal-panel modal-enter" style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '100%', maxWidth: 480, overflow: 'hidden', zIndex: 50 }}>
+              {/* Header strip */}
+              <div style={{ position: 'relative', padding: '20px 24px 20px', background: 'linear-gradient(135deg,#1e293b,#0f172a)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div>
+                  <p style={{ fontSize: 10, fontWeight: 700, color: '#C4B5FD', letterSpacing: '0.1em', textTransform: 'uppercase', margin: '0 0 2px' }}>{ui?.cast_panel_label ?? 'Cast'}</p>
+                  <p style={{ fontSize: 13, color: '#94a3b8', margin: 0 }}>{ui?.cast_panel_subtitle ?? 'Featured Character'}</p>
+                </div>
+                <button onClick={() => setModal(null)} className="rail-btn" style={{ width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', flexShrink: 0 }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </button>
-                <p style={{ fontSize: 10, fontWeight: 700, color: '#C4B5FD', letterSpacing: '0.1em', textTransform: 'uppercase', margin: '0 0 3px' }}>{ui?.cast_panel_label ?? 'Cast'}</p>
-                <p style={{ fontSize: 13, color: '#94a3b8', margin: 0 }}>{ui?.cast_panel_subtitle ?? 'Featured Character'}</p>
               </div>
-              <div style={{ marginTop: -48, padding: '0 24px 24px' }}>
-                <div className="char-card" style={{ width: 72, height: 72, borderRadius: 12, overflow: 'hidden', border: '3px solid var(--border)', background: 'var(--surface2)', marginBottom: 14 }}>
+              {/* Body */}
+              <div style={{ padding: '24px', display: 'flex', gap: 24, alignItems: 'flex-start' }}>
+                <div style={{ width: 110, height: 130, borderRadius: 14, overflow: 'hidden', border: '2px solid var(--border)', background: 'var(--surface2)', flexShrink: 0 }}>
                   {simData?.media.photo && <img src={simData.media.photo} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt={ui?.cast_panel_subtitle ?? ''} onError={e => (e.currentTarget.style.display = 'none')} />}
                 </div>
-                <p id="cast-name" style={{ fontSize: 17, fontWeight: 700, color: 'var(--text-1)', margin: '0 0 3px' }}>
-                  {simData ? (simData.nodes['text_image'] as import('./types').TextImageNode)?.character_name : 'Jordan Chen'}
-                </p>
-                <p id="cast-role" style={{ fontSize: 12, color: 'var(--text-3)', margin: '0 0 14px' }}>
-                  {simData ? (simData.nodes['text_image'] as import('./types').TextImageNode)?.character_title : 'VP of Digital Learning'}
-                </p>
-                <div className="callout">
-                  <p style={{ fontSize: 12, color: 'var(--text-2)', lineHeight: 1.6, margin: 0 }}>{ui?.cast_panel_body ?? ''}</p>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <p id="cast-name" style={{ fontSize: 20, fontWeight: 700, color: 'var(--text-1)', margin: '0 0 4px', letterSpacing: '-0.3px' }}>
+                    {simData ? (simData.nodes['text_image'] as import('./types').TextImageNode)?.character_name : 'Jordan Chen'}
+                  </p>
+                  <p id="cast-role" style={{ fontSize: 13, color: 'var(--purple)', fontWeight: 600, margin: '0 0 16px' }}>
+                    {simData ? (simData.nodes['text_image'] as import('./types').TextImageNode)?.character_title : 'VP of Digital Learning'}
+                  </p>
+                  <div className="callout">
+                    <p style={{ fontSize: 13, color: 'var(--text-2)', lineHeight: 1.6, margin: 0 }}>{ui?.cast_panel_body ?? ''}</p>
+                  </div>
                 </div>
               </div>
             </div>
