@@ -392,6 +392,22 @@ kbd {
   flex-shrink: 0;
 }
 
+/* ── Responsive slide grids ── */
+.slide-grid-halves     { display: grid; grid-template-columns: 1fr 1fr; }
+.slide-grid-text-image { display: grid; grid-template-columns: 1fr 360px; }
+.slide-grid-video      { display: grid; grid-template-columns: 1fr 290px; }
+.slide-grid-thirds     { display: grid; grid-template-columns: repeat(3,1fr); }
+
+@media (max-width: 639px) {
+  .slide-grid-halves,
+  .slide-grid-text-image,
+  .slide-grid-video,
+  .slide-grid-thirds {
+    grid-template-columns: 1fr !important;
+  }
+  .main-card { padding: 28px !important; }
+}
+
 /* ── Error state ── */
 .error-icon-wrap {
   width: 56px;

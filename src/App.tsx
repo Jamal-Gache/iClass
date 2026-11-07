@@ -29,7 +29,6 @@ export default function App() {
   const [modal, setModal] = useState<ModalType>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [testErr, setTestErr] = useState(false);
   const [timerSecs, setTimerSecs] = useState(0);
   const [captionsOn, setCaptionsOn] = useState(true);
 
@@ -43,11 +42,6 @@ export default function App() {
   const startSimulation = useCallback(async () => {
     setLoading(true);
     setError(null);
-    if (testErr) {
-      setLoading(false);
-      setError('Simulated error — test mode active.');
-      return;
-    }
     try {
       const r = await fetch(`/api/simulation?lang=${lang}&ethnicity=${ethnicity}`);
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
@@ -62,7 +56,7 @@ export default function App() {
     } finally {
       setLoading(false);
     }
-  }, [lang, ethnicity, testErr]);
+  }, [lang, ethnicity]);
 
   const goNext = useCallback(() => {
     if (!simData) return;
@@ -112,7 +106,10 @@ export default function App() {
     const handler = (e: KeyboardEvent) => {
       const key = e.key.toUpperCase();
       const choice = currentNode.choices.find(c => c.id === key);
-      if (choice) chooseOption(choice.target_node_id, choice.id);
+      if (choice) {
+        e.preventDefault();
+        chooseOption(choice.target_node_id, choice.id);
+      }
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
@@ -138,14 +135,12 @@ export default function App() {
           onCast={() => setModal('cast')}
           onHelp={() => setModal('help')}
           onReset={restart}
-          onToggleTestErr={() => setTestErr(t => !t)}
-          testErr={testErr}
           briefTip={ui?.rail_brief_tip ?? 'Brief'}
           castTip={ui?.rail_cast_tip ?? 'Cast'}
           helpTip={ui?.rail_help_tip ?? 'Help'}
         />
 
-        <main className="stage" style={{ flex: 1, overflowY: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px 24px' }}>
+        <main className="stage" style={{ flex: 1, overflowY: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px 32px' }}>
           {loading && <LoadingState />}
           {!loading && error && (
             <ErrorState
@@ -157,6 +152,7 @@ export default function App() {
           )}
           {!loading && !error && isSetup && (
             <SetupSlide
+              key={currentNodeId}
               lang={lang}
               ethnicity={ethnicity}
               onLangChange={setLang}
@@ -165,13 +161,14 @@ export default function App() {
             />
           )}
           {!loading && !error && !isSetup && currentNode?.type === 'context' && (
-            <ContextSlide node={currentNode} />
+            <ContextSlide key={currentNodeId} node={currentNode} />
           )}
           {!loading && !error && !isSetup && currentNode?.type === 'text_image' && simData && (
-            <TextImageSlide node={currentNode} photoUrl={simData.media.photo} photoAlt={currentNode.character_alt} />
+            <TextImageSlide key={currentNodeId} node={currentNode} photoUrl={simData.media.photo} photoAlt={currentNode.character_alt} />
           )}
           {!loading && !error && !isSetup && currentNode?.type === 'video' && simData && (
             <VideoSlide
+              key={currentNodeId}
               node={currentNode}
               videoUrl={simData.media.video_template.replace('{lang}', lang)}
               captionsUrl={`/assets/captions_${lang}.vtt`}
@@ -180,13 +177,14 @@ export default function App() {
             />
           )}
           {!loading && !error && !isSetup && currentNode?.type === 'decision' && (
-            <DecisionSlide node={currentNode} chosenId={chosenId} onChoose={chooseOption} />
+            <DecisionSlide key={currentNodeId} node={currentNode} chosenId={chosenId} onChoose={chooseOption} />
           )}
           {!loading && !error && !isSetup && currentNode?.type === 'outcome' && (
-            <OutcomeSlide node={currentNode} />
+            <OutcomeSlide key={currentNodeId} node={currentNode} />
           )}
           {!loading && !error && !isSetup && currentNode?.type === 'summary' && simData && (
             <SummarySlide
+              key={currentNodeId}
               node={currentNode}
               chosenNode={chosenId ? (simData.nodes[chosenId === 'A' ? 'outcome_a' : 'outcome_b'] as import('./types').OutcomeNode) : null}
               optionLabel={ui?.option_label ?? 'Option'}

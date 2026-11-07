@@ -3,8 +3,6 @@ interface LeftRailProps {
   onCast: () => void;
   onHelp: () => void;
   onReset: () => void;
-  onToggleTestErr: () => void;
-  testErr: boolean;
   briefTip: string;
   castTip: string;
   helpTip: string;
@@ -21,7 +19,7 @@ function RailBtn({ onClick, tip, children, className = '' }: { onClick: () => vo
   );
 }
 
-export default function LeftRail({ onBrief, onCast, onHelp, onReset, onToggleTestErr, testErr, briefTip, castTip, helpTip }: LeftRailProps) {
+export default function LeftRail({ onBrief, onCast, onHelp, onReset, briefTip, castTip, helpTip }: LeftRailProps) {
   return (
     <aside className="rail-bar" style={{ width: 56, display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 16, gap: 4, flexShrink: 0 }}>
       <RailBtn onClick={onBrief} tip={briefTip}>
@@ -36,18 +34,6 @@ export default function LeftRail({ onBrief, onCast, onHelp, onReset, onToggleTes
       <RailBtn onClick={onReset} tip="Reset" className="warn">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-5"/></svg>
       </RailBtn>
-
-      <div style={{ flex: 1 }} />
-
-      <div style={{ marginBottom: 12, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-        <button
-          id="test-err-btn"
-          onClick={onToggleTestErr}
-          style={{ fontSize: 10, fontWeight: 600, padding: '3px 6px', borderRadius: 6, border: '1px solid', cursor: 'pointer', background: testErr ? '#fef2f2' : 'var(--surface2)', color: testErr ? '#dc2626' : 'var(--text-3)', borderColor: testErr ? '#fecaca' : 'var(--border2)' }}
-        >
-          {testErr ? '🔴 Error ON' : '🧪 Test Error'}
-        </button>
-      </div>
     </aside>
   );
 }

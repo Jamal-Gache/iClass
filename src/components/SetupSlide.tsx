@@ -60,19 +60,19 @@ function CustomSelect<T extends string>({ value, options, onChange, id }: { valu
 export default function SetupSlide({ lang, ethnicity, onLangChange, onEthnicityChange, onStart }: Props) {
   const u = SETUP_UI[lang];
   return (
-    <div className="main-card slide-enter" style={{ maxWidth: 760, width: '100%', padding: 48 }}>
+    <div className="main-card slide-enter" style={{ maxWidth: 1020, width: '100%', padding: 60 }}>
       <div style={{ textAlign: 'center', marginBottom: 36 }}>
         <span className="step-badge" style={{ marginBottom: 16, display: 'inline-block' }}>● Interactive Simulation</span>
-        <h1 id="setup-title" style={{ fontSize: 32, fontWeight: 700, color: 'var(--text-1)', margin: '0 0 12px', letterSpacing: '-0.5px' }}>{u.sim_title}</h1>
-        <p id="setup-subtitle" style={{ fontSize: 14, color: 'var(--text-3)', lineHeight: 1.6, margin: 0 }}>{u.setup_subtitle}</p>
+        <h1 id="setup-title" style={{ fontSize: 42, fontWeight: 700, color: 'var(--text-1)', margin: '0 0 12px', letterSpacing: '-0.5px' }}>{u.sim_title}</h1>
+        <p id="setup-subtitle" style={{ fontSize: 16, color: 'var(--text-3)', lineHeight: 1.6, margin: 0 }}>{u.setup_subtitle}</p>
       </div>
 
       <div className="callout" style={{ marginBottom: 28 }}>
-        <p id="before-you-begin-title" style={{ fontSize: 11, fontWeight: 700, color: 'var(--purple)', letterSpacing: '0.06em', textTransform: 'uppercase', margin: '0 0 6px' }}>{u.before_you_begin_title}</p>
-        <p id="before-you-begin-body" style={{ color: 'var(--text-2)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>{u.before_you_begin_body}</p>
+        <p id="before-you-begin-title" style={{ fontSize: 12, fontWeight: 700, color: 'var(--purple)', letterSpacing: '0.06em', textTransform: 'uppercase', margin: '0 0 6px' }}>{u.before_you_begin_title}</p>
+        <p id="before-you-begin-body" style={{ color: 'var(--text-2)', fontSize: 14, lineHeight: 1.6, margin: 0 }}>{u.before_you_begin_body}</p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 36 }}>
+      <div className="slide-grid-halves" style={{ gap: 24, marginBottom: 36 }}>
         <div>
           <label id="setup-lang-label" style={{ display: 'block', fontSize: 11, fontWeight: 700, color: 'var(--text-3)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 8 }}>{u.lang_label}</label>
           <CustomSelect<Lang>
@@ -94,7 +94,7 @@ export default function SetupSlide({ lang, ethnicity, onLangChange, onEthnicityC
       </div>
 
       <div style={{ textAlign: 'center' }}>
-        <button id="setup-start-btn" onClick={onStart} className="btn-primary" style={{ fontSize: 15, padding: '12px 32px' }}>
+        <button id="setup-start-btn" onClick={onStart} className="btn-primary" style={{ fontSize: 16, padding: '14px 44px' }}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
           {u.start_btn}
         </button>

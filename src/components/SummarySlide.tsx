@@ -10,17 +10,17 @@ interface Props {
 
 export default function SummarySlide({ node, chosenNode, optionLabel, restartLabel, onRestart }: Props) {
   return (
-    <div className="main-card slide-enter" style={{ maxWidth: 760, width: '100%', padding: 48 }}>
+    <div className="main-card slide-enter" style={{ maxWidth: 1020, width: '100%', padding: 60 }}>
       <span className="step-badge" style={{ marginBottom: 20, display: 'inline-block' }}>{node.step_badge}</span>
-      <h2 id="sum-title" style={{ fontSize: 28, fontWeight: 700, color: 'var(--text-1)', margin: '0 0 24px', letterSpacing: '-0.3px' }}>{node.title}</h2>
+      <h2 id="sum-title" style={{ fontSize: 36, fontWeight: 700, color: 'var(--text-1)', margin: '0 0 24px', letterSpacing: '-0.3px' }}>{node.title}</h2>
 
       {chosenNode && (
         <div id="sum-recap" style={{ marginBottom: 24 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
             <span className="step-badge">{optionLabel} {chosenNode.you_chose.slice(-1)}</span>
-            <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-1)' }}>{chosenNode.title}</span>
+            <span style={{ fontSize: 16, fontWeight: 700, color: 'var(--text-1)' }}>{chosenNode.title}</span>
           </div>
-          <p style={{ fontSize: 14, color: 'var(--text-2)', margin: 0, lineHeight: 1.6 }}>{chosenNode.body}</p>
+          <p style={{ fontSize: 15, color: 'var(--text-2)', margin: 0, lineHeight: 1.6 }}>{chosenNode.body}</p>
         </div>
       )}
 
@@ -30,8 +30,8 @@ export default function SummarySlide({ node, chosenNode, optionLabel, restartLab
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           </div>
           <div>
-            <p style={{ fontSize: 11, fontWeight: 700, color: 'var(--purple)', letterSpacing: '0.06em', textTransform: 'uppercase', margin: '0 0 4px' }}>{node.reflection_prompt_label}</p>
-            <p style={{ fontSize: 14, color: 'var(--text-1)', margin: 0, lineHeight: 1.6 }}>{node.question}</p>
+            <p style={{ fontSize: 12, fontWeight: 700, color: 'var(--purple)', letterSpacing: '0.06em', textTransform: 'uppercase', margin: '0 0 4px' }}>{node.reflection_prompt_label}</p>
+            <p style={{ fontSize: 15, color: 'var(--text-1)', margin: 0, lineHeight: 1.6 }}>{node.question}</p>
           </div>
         </div>
       </div>
