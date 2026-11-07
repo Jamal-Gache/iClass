@@ -1,0 +1,22 @@
+venv/
+__pycache__/
+*.pyc
+node_modules/
+.env
+.claude/
+*.egg-info/
+dist/
+
+# Claude / AI tooling
+CLAUDE.md
+.cursorrules
+.cursorignore
+.cursor/
+.windsurfrules
+.windsurf/
+.aider*
+.copilot/
+.github/copilot-instructions.md
+*.claude
+verify_ui.mjs
+screenshots/
