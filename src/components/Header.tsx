@@ -19,14 +19,16 @@ function fmt(s: number) {
 
 export default function Header({ simTitle, progress, slideLabel, timerSecs, lang, ethnicity, speechEnabled, onToggleSpeech }: HeaderProps) {
   return (
-    <header className="header-bar" style={{ height: 56, padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0, zIndex: 20 }}>
+    <header className="header-bar" style={{ height: 56, padding: '0 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0, zIndex: 20 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
-        <img
-          src="/logo.png"
-          alt="iClass"
-          style={{ height: 48, width: 'auto', display: 'block', flexShrink: 0 }}
-        />
-        <span style={{ fontWeight: 700, fontSize: 17, color: 'var(--text-1)', letterSpacing: '-0.3px', flexShrink: 0 }}>iClass</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexShrink: 0 }}>
+          <img
+            src="/logo.png"
+            alt="iClass"
+            style={{ height: 48, width: 'auto', display: 'block' }}
+          />
+          <span style={{ fontWeight: 700, fontSize: 17, color: 'var(--text-1)', letterSpacing: '-0.3px' }}>iClass</span>
+        </div>
         <div style={{ width: 1, height: 18, background: 'var(--border2)', flexShrink: 0 }} />
         <span id="hdr-sim-title" style={{ fontSize: 13, color: 'var(--text-3)', fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{simTitle}</span>
       </div>
