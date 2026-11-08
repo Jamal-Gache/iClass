@@ -24,6 +24,14 @@ with open(BASE_DIR / "scenario.json") as f:
 VALID_LANGS = {"en", "es", "ar", "zh", "ne", "sw", "ur"}
 VALID_ETHNICITIES = {"african", "caucasian", "east_asian", "latin", "south_asian"}
 
+CHARACTER_NAMES: dict[str, str] = {
+    "african":     "Marcus Johnson",
+    "caucasian":   "James Mitchell",
+    "east_asian":  "Jordan Chen",
+    "latin":       "Sofia Rivera",
+    "south_asian": "Priya Sharma",
+}
+
 AVAILABLE_VIDEOS = set()
 for _e in VALID_ETHNICITIES:
     for _l in VALID_LANGS:
@@ -68,9 +76,17 @@ def get_simulation(
     if ethnicity not in VALID_ETHNICITIES:
         raise HTTPException(400, detail=f"ethnicity must be one of {sorted(VALID_ETHNICITIES)}")
 
+    nodes = copy.deepcopy(SCENARIO[lang]["nodes"])
+    char_name = CHARACTER_NAMES.get(ethnicity, "Jordan Chen")
+    for node in nodes.values():
+        if "character_name" in node:
+            node["character_name"] = char_name
+        if "character_alt" in node:
+            node["character_alt"] = node["character_alt"].replace("Jordan Chen", char_name)
+
     return {
         "start_node_id": SCENARIO["start_node_id"],
-        "nodes": SCENARIO[lang]["nodes"],
+        "nodes": nodes,
         "ui": SCENARIO[lang]["ui"],
         "media": {
             "photo": f"/assets/{ethnicity}.png",
