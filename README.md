@@ -1,4 +1,4 @@
-# SchoolSims Player
+# iClass: a SchholSims Player
 
 An interactive bilingual simulation platform for leadership training. Learners navigate a realistic workplace scenario across 7 slides — from context and video to a branching decision — in **English or Spanish**, with **5 selectable character ethnicities**. Designed for colleges and corporate L&D teams.
 
