@@ -21,13 +21,41 @@ app.mount("/tts", StaticFiles(directory=str(CACHE_DIR)), name="tts")
 with open(BASE_DIR / "scenario.json") as f:
     SCENARIO: dict = json.load(f)
 
-VALID_LANGS = {"en", "es"}
-VALID_ETHNICITIES = {"black", "east_asian"}
+VALID_LANGS = {"en", "es", "ar", "zh", "ne", "sw", "ur"}
+VALID_ETHNICITIES = {"african", "caucasian", "east_asian", "latin", "south_asian"}
+
+AVAILABLE_VIDEOS = set()
+for _e in VALID_ETHNICITIES:
+    for _l in VALID_LANGS:
+        _path = Path(__file__).parent.parent / "public" / "assets" / f"{_e}_{_l}.mp4"
+        if _path.exists():
+            AVAILABLE_VIDEOS.add((_e, _l))
 
 
 @app.get("/api/options")
-def get_options():
-    return {"languages": list(VALID_LANGS), "ethnicities": list(VALID_ETHNICITIES)}
+def get_options(lang: str = Query("en")):
+    display_lang = lang if lang in VALID_LANGS else "en"
+    ui = SCENARIO[display_lang]["ui"]
+    return {
+        "languages": [
+            {"value": code, "label": ui["language_labels"][code]}
+            for code in sorted(VALID_LANGS)
+        ],
+        "ethnicities": [
+            {"value": code, "label": ui["ethnicity_labels"][code]}
+            for code in sorted(VALID_ETHNICITIES)
+        ],
+        "available_combos": [list(c) for c in sorted(AVAILABLE_VIDEOS)],
+        "setup_ui": {
+            "sim_title": ui["sim_title"],
+            "setup_subtitle": ui["setup_subtitle"],
+            "before_you_begin_title": ui["before_you_begin_title"],
+            "before_you_begin_body": ui["before_you_begin_body"],
+            "lang_label": ui["lang_label"],
+            "eth_label": ui["eth_label"],
+            "start_btn": ui["start_btn"],
+        },
+    }
 
 
 @app.get("/api/simulation")
@@ -45,7 +73,7 @@ def get_simulation(
         "nodes": SCENARIO[lang]["nodes"],
         "ui": SCENARIO[lang]["ui"],
         "media": {
-            "photo": f"/assets/{ethnicity}_photo.{'png' if ethnicity == 'black' else 'jpg'}",
+            "photo": f"/assets/{ethnicity}.png",
             "video_template": f"/assets/{ethnicity}_{lang}.mp4",
             "photo_alt": "Character portrait",
         },
@@ -62,11 +90,13 @@ class ScenarioUpdate(BaseModel):
 def tts_preload(body: dict):
     """Generate (or return cached) ElevenLabs MP3s for all slide texts."""
     texts: dict = body.get("texts", {})
+    lang: str = body.get("lang", "en")
     result = {}
     for node_id, text in texts.items():
         if text:
-            filename = get_or_generate(text)
-            result[node_id] = f"/tts/{filename}"
+            filename = get_or_generate(text, lang=lang)
+            if filename:
+                result[node_id] = f"/tts/{filename}"
     return result
 
 

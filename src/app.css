@@ -177,7 +177,6 @@ body {
   border: 1px solid var(--border);
   border-radius: 20px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(107,70,193,0.06);
-  overflow: hidden;
 }
 
 /* ── Callout blocks ── */
@@ -229,8 +228,9 @@ body {
   border: 1px solid var(--border2);
   border-radius: 10px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.10);
-  z-index: 10;
-  overflow: hidden;
+  z-index: 1000;
+  overflow-y: auto;
+  max-height: 220px;
 }
 .csel.open .csel-menu { display: block; }
 .csel-opt {

@@ -79,10 +79,8 @@ export interface UIStrings {
   restart_btn: string;
   lang_label: string;
   eth_label: string;
-  eth_black: string;
-  eth_east_asian: string;
-  lang_en: string;
-  lang_es: string;
+  ethnicity_labels: Record<string, string>;
+  language_labels: Record<string, string>;
   sim_title: string;
   setup_subtitle: string;
   before_you_begin_title: string;
@@ -127,7 +125,7 @@ export interface SimData {
 
 export type AudioMap = Record<string, string>; // node_id → /tts/xxx.mp3
 
-export type Lang = 'en' | 'es';
-export type Ethnicity = 'black' | 'east_asian';
+export type Lang = 'en' | 'es' | 'ar' | 'zh' | 'ne' | 'sw' | 'ur';
+export type Ethnicity = 'african' | 'caucasian' | 'east_asian' | 'latin' | 'south_asian';
 
 export type ModalType = 'brief' | 'cast' | 'help' | null;

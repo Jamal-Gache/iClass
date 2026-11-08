@@ -21,7 +21,7 @@ const PROGRESS: Record<string, number> = {
 
 export default function App() {
   const [lang, setLang] = useState<Lang>('en');
-  const [ethnicity, setEthnicity] = useState<Ethnicity>('black');
+  const [ethnicity, setEthnicity] = useState<Ethnicity>('african');
   const [simData, setSimData] = useState<SimData | null>(null);
   const [currentNodeId, setCurrentNodeId] = useState<string>('setup');
   const [historyStack, setHistoryStack] = useState<string[]>([]);
@@ -66,7 +66,7 @@ export default function App() {
       const ttsR = await fetch('/api/tts/preload', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ texts }),
+        body: JSON.stringify({ texts, lang }),
       });
       if (ttsR.ok) {
         const map: AudioMap = await ttsR.json();
@@ -155,7 +155,7 @@ export default function App() {
         slideLabel={isSetup ? 'Setup' : currentNode?.step_badge ?? ''}
         timerSecs={timerSecs}
         lang={isSetup ? null : lang.toUpperCase()}
-        ethnicity={isSetup ? null : (ethnicity === 'black' ? 'Black' : 'East Asian')}
+        ethnicity={isSetup ? null : (simData?.ui.ethnicity_labels?.[ethnicity] ?? ethnicity)}
         speechEnabled={speechEnabled}
         onToggleSpeech={() => { setSpeechEnabled(s => !s); window.speechSynthesis.cancel(); }}
       />

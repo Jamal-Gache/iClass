@@ -50,9 +50,9 @@
         "title": "Delivery pressure",
         "body": "The customer agrees. Your team must renegotiate existing commitments.",
         "impacts": [
-          { "key": "revenue", "label": "Revenue", "direction": "up",   "body": "Near-term deal secured with the college" },
-          { "key": "capacity","label": "Capacity","direction": "down", "body": "Team overextended, commitments renegotiated" },
-          { "key": "trust",   "label": "Trust",   "direction": "mid",  "body": "At risk if delivery slips under pressure" }
+          { "key": "revenue", "label": "Revenue", "direction": "up", "body": "Near-term deal secured with the college" },
+          { "key": "capacity", "label": "Capacity", "direction": "down", "body": "Team overextended, commitments renegotiated" },
+          { "key": "trust", "label": "Trust", "direction": "mid", "body": "At risk if delivery slips under pressure" }
         ]
       },
       "outcome_b": {
@@ -63,9 +63,9 @@
         "title": "A smaller first step",
         "body": "The customer reviews a limited pilot with an agreed scope and timeline.",
         "impacts": [
-          { "key": "revenue", "label": "Revenue", "direction": "mid",  "body": "Slower to close — pilot first, full deal later" },
-          { "key": "capacity","label": "Capacity","direction": "up",   "body": "Existing commitments preserved" },
-          { "key": "trust",   "label": "Trust",   "direction": "up",   "body": "Transparent expectation-setting builds trust" }
+          { "key": "revenue", "label": "Revenue", "direction": "mid", "body": "Slower to close — pilot first, full deal later" },
+          { "key": "capacity", "label": "Capacity", "direction": "up", "body": "Existing commitments preserved" },
+          { "key": "trust", "label": "Trust", "direction": "up", "body": "Transparent expectation-setting builds trust" }
         ]
       },
       "summary": {
@@ -84,10 +84,22 @@
       "restart_btn": "Restart Simulation",
       "lang_label": "Language",
       "eth_label": "Character Ethnicity",
-      "eth_black": "Black",
-      "eth_east_asian": "East Asian",
-      "lang_en": "English",
-      "lang_es": "Español",
+      "ethnicity_labels": {
+        "african": "African",
+        "caucasian": "Caucasian",
+        "east_asian": "East Asian",
+        "latin": "Latin",
+        "south_asian": "South Asian"
+      },
+      "language_labels": {
+        "en": "English",
+        "es": "Español",
+        "ar": "العربية",
+        "zh": "中文",
+        "ne": "नेपाली",
+        "sw": "Kiswahili",
+        "ur": "اردو"
+      },
       "sim_title": "Leadership Decision Simulation",
       "setup_subtitle": "Experience realistic leadership scenarios and develop critical decision-making skills in a safe, reflective environment.",
       "before_you_begin_title": "Before You Begin",
@@ -167,9 +179,9 @@
         "title": "Presión de entrega",
         "body": "El cliente acepta. Tu equipo debe renegociar los compromisos existentes.",
         "impacts": [
-          { "key": "revenue", "label": "Ingresos",  "direction": "up",   "body": "Acuerdo a corto plazo asegurado con la universidad" },
-          { "key": "capacity","label": "Capacidad", "direction": "down", "body": "Equipo sobrecargado, compromisos renegociados" },
-          { "key": "trust",   "label": "Confianza", "direction": "mid",  "body": "En riesgo si la entrega se retrasa bajo presión" }
+          { "key": "revenue", "label": "Ingresos", "direction": "up", "body": "Acuerdo a corto plazo asegurado con la universidad" },
+          { "key": "capacity", "label": "Capacidad", "direction": "down", "body": "Equipo sobrecargado, compromisos renegociados" },
+          { "key": "trust", "label": "Confianza", "direction": "mid", "body": "En riesgo si la entrega se retrasa bajo presión" }
         ]
       },
       "outcome_b": {
@@ -180,9 +192,9 @@
         "title": "Un primer paso más pequeño",
         "body": "El cliente revisa un piloto limitado con un alcance y cronograma acordados.",
         "impacts": [
-          { "key": "revenue", "label": "Ingresos",  "direction": "mid",  "body": "Más lento de cerrar — primero el piloto, luego el acuerdo completo" },
-          { "key": "capacity","label": "Capacidad", "direction": "up",   "body": "Los compromisos existentes se mantienen" },
-          { "key": "trust",   "label": "Confianza", "direction": "up",   "body": "Establecer expectativas transparentes genera confianza" }
+          { "key": "revenue", "label": "Ingresos", "direction": "mid", "body": "Más lento de cerrar — primero el piloto, luego el acuerdo completo" },
+          { "key": "capacity", "label": "Capacidad", "direction": "up", "body": "Los compromisos existentes se mantienen" },
+          { "key": "trust", "label": "Confianza", "direction": "up", "body": "Establecer expectativas transparentes genera confianza" }
         ]
       },
       "summary": {
@@ -201,10 +213,22 @@
       "restart_btn": "Reiniciar simulación",
       "lang_label": "Idioma",
       "eth_label": "Etnia del personaje",
-      "eth_black": "Negro",
-      "eth_east_asian": "Asiático oriental",
-      "lang_en": "English",
-      "lang_es": "Español",
+      "ethnicity_labels": {
+        "african": "Africano",
+        "caucasian": "Caucásico",
+        "east_asian": "Asiático oriental",
+        "latin": "Latino",
+        "south_asian": "Sudasiático"
+      },
+      "language_labels": {
+        "en": "English",
+        "es": "Español",
+        "ar": "العربية",
+        "zh": "中文",
+        "ne": "नेपाली",
+        "sw": "Kiswahili",
+        "ur": "اردو"
+      },
       "sim_title": "Simulación de Decisión de Liderazgo",
       "setup_subtitle": "Experimenta escenarios de liderazgo realistas y desarrolla habilidades críticas de toma de decisiones en un entorno seguro y reflexivo.",
       "before_you_begin_title": "Antes de comenzar",
@@ -232,6 +256,651 @@
       "badge_en": "ES",
       "option_label": "Opción",
       "speech_locale": "es-ES"
+    }
+  },
+  "ar": {
+    "nodes": {
+      "context": {
+        "type": "context",
+        "next_node_id": "text_image",
+        "step_badge": "1 السياق",
+        "title": "فرصة عميل جديدة",
+        "body": "أنت تقود SchoolSims. تطلب إحدى الجامعات ميزة جديدة قبل التوقيع. فريقك لديه قدرة محدودة. هدفك التعليمي هو الموازنة بين الإيرادات قصيرة المدى وقدرة التسليم وثقة العميل.",
+        "learning_objective_label": "هدف التعلم",
+        "learning_objective_body": "الموازنة بين الإيرادات قصيرة المدى وقدرة التسليم وثقة العميل."
+      },
+      "text_image": {
+        "type": "text_image",
+        "next_node_id": "video",
+        "step_badge": "2 نص وصورة",
+        "title": "طلب العميل",
+        "body": "تريد الجامعة الميزة خلال أربعة أسابيع. مطوروك لديهم التزامات بالفعل.",
+        "character_name": "Jordan Chen",
+        "character_title": "نائب رئيس التعلم الرقمي",
+        "character_alt": "صورة Jordan Chen، نائب رئيس التعلم الرقمي",
+        "ti_point1": "جدول تسليم مطلوب خلال 4 أسابيع",
+        "ti_point2": "فريق التطوير يعمل بكامل طاقته بالفعل"
+      },
+      "video": {
+        "type": "video",
+        "next_node_id": "decision",
+        "step_badge": "3 فيديو",
+        "quote": "هل يمكننا الالتزام بأربعة أسابيع؟",
+        "watch_listen_title": "شاهد واستمع",
+        "watch_listen_body": "انتبه لإلحاح العميل. سيشكل ضغط القرار الذي ستشعر به في الشريحة التالية."
+      },
+      "decision": {
+        "type": "decision",
+        "next_node_id": null,
+        "step_badge": "4 قرار",
+        "prompt": "ماذا ستفعل؟",
+        "keyboard_hint": "اضغط [A] أو [B] لاتخاذ القرار",
+        "choices": [
+          { "id": "A", "label": "A الالتزام بالموعد النهائي", "target_node_id": "outcome_a" },
+          { "id": "B", "label": "B اقتراح تجربة مرحلية", "target_node_id": "outcome_b" }
+        ]
+      },
+      "outcome_a": {
+        "type": "outcome",
+        "next_node_id": "summary",
+        "step_badge": "5A النتيجة أ",
+        "you_chose": "اخترت أ",
+        "title": "ضغط التسليم",
+        "body": "يوافق العميل. يجب على فريقك إعادة التفاوض على الالتزامات الحالية.",
+        "impacts": [
+          { "key": "revenue", "label": "الإيرادات", "direction": "up", "body": "تم تأمين الصفقة قصيرة المدى مع الجامعة" },
+          { "key": "capacity", "label": "القدرة", "direction": "down", "body": "الفريق مثقل بالعمل، تمت إعادة التفاوض على الالتزامات" },
+          { "key": "trust", "label": "الثقة", "direction": "mid", "body": "معرضة للخطر إذا تأخر التسليم تحت الضغط" }
+        ]
+      },
+      "outcome_b": {
+        "type": "outcome",
+        "next_node_id": "summary",
+        "step_badge": "5B النتيجة ب",
+        "you_chose": "اخترت ب",
+        "title": "خطوة أولى أصغر",
+        "body": "يراجع العميل تجربة محدودة بنطاق وجدول زمني متفق عليهما.",
+        "impacts": [
+          { "key": "revenue", "label": "الإيرادات", "direction": "mid", "body": "أبطأ في الإغلاق — التجربة أولاً، ثم الصفقة الكاملة لاحقاً" },
+          { "key": "capacity", "label": "القدرة", "direction": "up", "body": "تم الحفاظ على الالتزامات الحالية" },
+          { "key": "trust", "label": "الثقة", "direction": "up", "body": "تحديد التوقعات بشفافية يبني الثقة" }
+        ]
+      },
+      "summary": {
+        "type": "summary",
+        "next_node_id": null,
+        "step_badge": "6 ملخص",
+        "title": "تأمل في قرارك",
+        "reflection_prompt_label": "سؤال للتأمل",
+        "question": "كيف وازن اختيارك بين الإيرادات والقدرة والثقة؟"
+      }
+    },
+    "ui": {
+      "start_btn": "بدء المحاكاة",
+      "back_btn": "رجوع",
+      "next_btn": "التالي",
+      "restart_btn": "إعادة المحاكاة",
+      "lang_label": "اللغة",
+      "eth_label": "عرق الشخصية",
+      "ethnicity_labels": {
+        "african": "أفريقي",
+        "caucasian": "قوقازي",
+        "east_asian": "شرق آسيوي",
+        "latin": "لاتيني",
+        "south_asian": "جنوب آسيوي"
+      },
+      "language_labels": {
+        "en": "English",
+        "es": "Español",
+        "ar": "العربية",
+        "zh": "中文",
+        "ne": "नेपाली",
+        "sw": "Kiswahili",
+        "ur": "اردو"
+      },
+      "sim_title": "محاكاة قرار القيادة",
+      "setup_subtitle": "عش سيناريوهات قيادية واقعية وطور مهارات اتخاذ القرارات الحاسمة في بيئة آمنة وتأملية.",
+      "before_you_begin_title": "قبل أن تبدأ",
+      "before_you_begin_body": "هذه بيئة آمنة للتدرب. لا توجد إجابة صحيحة واحدة — استكشف كلا المسارين لفهم النطاق الكامل للمقايضات.",
+      "sim_error_title": "فشل تحميل المحاكاة",
+      "sim_error_body": "تعذر الاتصال بخدمة المحاكاة. يرجى التحقق من اتصالك والمحاولة مرة أخرى.",
+      "retry_btn": "إعادة المحاولة",
+      "brief_scenario_label": "السيناريو",
+      "brief_scenario_body": "أنت تقود SchoolSims. تطلب إحدى الجامعات ميزة جديدة قبل التوقيع. فريقك لديه قدرة محدودة.",
+      "brief_objective_label": "هدف التعلم",
+      "brief_objective_body": "الموازنة بين الإيرادات قصيرة المدى وقدرة التسليم وثقة العميل.",
+      "cast_panel_label": "الشخصيات",
+      "cast_panel_subtitle": "الشخصية الرئيسية",
+      "cast_panel_body": "تمثل هذه الشخصية صاحب المصلحة الخارجي في السيناريو. قراراتها تشكل النتائج التي ستختبرها.",
+      "help_panel_title": "قبل أن تبدأ",
+      "help_safe_title": "بيئة آمنة",
+      "help_safe_body": "القرارات هنا لا تؤثر على نتائج حقيقية. تدرب بحرية.",
+      "help_no_right_title": "لا توجد إجابة صحيحة واحدة",
+      "help_no_right_body": "كلا الخيارين ينطويان على مقايضات حقيقية. تأمل في منطقك.",
+      "help_replay_title": "العب عدة مرات",
+      "help_replay_body": "جرب كلا المسارين لفهم النطاق الكامل للعواقب.",
+      "rail_brief_tip": "ملخص",
+      "rail_cast_tip": "الشخصيات",
+      "rail_help_tip": "مساعدة",
+      "badge_en": "AR",
+      "option_label": "خيار",
+      "speech_locale": "ar-SA"
+    }
+  },
+  "zh": {
+    "nodes": {
+      "context": {
+        "type": "context",
+        "next_node_id": "text_image",
+        "step_badge": "1 背景",
+        "title": "新的客户机会",
+        "body": "你领导SchoolSims。一所大学在签约前要求一项新功能。你的团队能力有限。你的学习目标是权衡短期收入与交付能力和客户信任之间的关系。",
+        "learning_objective_label": "学习目标",
+        "learning_objective_body": "权衡短期收入与交付能力和客户信任之间的关系。"
+      },
+      "text_image": {
+        "type": "text_image",
+        "next_node_id": "video",
+        "step_badge": "2 图文",
+        "title": "客户的请求",
+        "body": "大学希望在四周内完成该功能。你的开发人员已有其他承诺。",
+        "character_name": "Jordan Chen",
+        "character_title": "数字学习副总裁",
+        "character_alt": "Jordan Chen的肖像，数字学习副总裁",
+        "ti_point1": "要求4周交付时间",
+        "ti_point2": "开发团队已满负荷运转"
+      },
+      "video": {
+        "type": "video",
+        "next_node_id": "decision",
+        "step_badge": "3 视频",
+        "quote": "我们能承诺四周内完成吗？",
+        "watch_listen_title": "观看并聆听",
+        "watch_listen_body": "注意客户的紧迫感。这将影响你在下一页感受到的决策压力。"
+      },
+      "decision": {
+        "type": "decision",
+        "next_node_id": null,
+        "step_badge": "4 决策",
+        "prompt": "你会怎么做？",
+        "keyboard_hint": "按 [A] 或 [B] 做出决定",
+        "choices": [
+          { "id": "A", "label": "A 承诺按期交付", "target_node_id": "outcome_a" },
+          { "id": "B", "label": "B 提议分阶段试点", "target_node_id": "outcome_b" }
+        ]
+      },
+      "outcome_a": {
+        "type": "outcome",
+        "next_node_id": "summary",
+        "step_badge": "5A 结果A",
+        "you_chose": "你选择了A",
+        "title": "交付压力",
+        "body": "客户同意了。你的团队必须重新协商现有承诺。",
+        "impacts": [
+          { "key": "revenue", "label": "收入", "direction": "up", "body": "与大学达成了短期交易" },
+          { "key": "capacity", "label": "产能", "direction": "down", "body": "团队超负荷，承诺被重新协商" },
+          { "key": "trust", "label": "信任", "direction": "mid", "body": "如果在压力下交付延误，信任面临风险" }
+        ]
+      },
+      "outcome_b": {
+        "type": "outcome",
+        "next_node_id": "summary",
+        "step_badge": "5B 结果B",
+        "you_chose": "你选择了B",
+        "title": "更小的第一步",
+        "body": "客户审查一个范围和时间表已商定的有限试点。",
+        "impacts": [
+          { "key": "revenue", "label": "收入", "direction": "mid", "body": "成交较慢——先试点，后完整交易" },
+          { "key": "capacity", "label": "产能", "direction": "up", "body": "现有承诺得以保留" },
+          { "key": "trust", "label": "信任", "direction": "up", "body": "透明的期望设定建立信任" }
+        ]
+      },
+      "summary": {
+        "type": "summary",
+        "next_node_id": null,
+        "step_badge": "6 总结",
+        "title": "反思你的决策",
+        "reflection_prompt_label": "反思提示",
+        "question": "你的选择如何平衡了收入、产能和信任？"
+      }
+    },
+    "ui": {
+      "start_btn": "开始模拟",
+      "back_btn": "返回",
+      "next_btn": "下一步",
+      "restart_btn": "重新开始模拟",
+      "lang_label": "语言",
+      "eth_label": "角色种族",
+      "ethnicity_labels": {
+        "african": "非洲裔",
+        "caucasian": "白人",
+        "east_asian": "东亚裔",
+        "latin": "拉丁裔",
+        "south_asian": "南亚裔"
+      },
+      "language_labels": {
+        "en": "English",
+        "es": "Español",
+        "ar": "العربية",
+        "zh": "中文",
+        "ne": "नेपाली",
+        "sw": "Kiswahili",
+        "ur": "اردو"
+      },
+      "sim_title": "领导力决策模拟",
+      "setup_subtitle": "体验真实的领导力场景，在安全、反思的环境中培养关键的决策能力。",
+      "before_you_begin_title": "开始之前",
+      "before_you_begin_body": "这是一个安全的练习环境。没有唯一正确的答案——探索两条路径以理解完整的权衡范围。",
+      "sim_error_title": "模拟加载失败",
+      "sim_error_body": "无法连接到模拟服务。请检查网络连接后重试。",
+      "retry_btn": "重试",
+      "brief_scenario_label": "场景",
+      "brief_scenario_body": "你领导SchoolSims。一所大学在签约前要求一项新功能。你的团队能力有限。",
+      "brief_objective_label": "学习目标",
+      "brief_objective_body": "权衡短期收入与交付能力和客户信任之间的关系。",
+      "cast_panel_label": "角色",
+      "cast_panel_subtitle": "主要角色",
+      "cast_panel_body": "该角色代表场景中的外部利益相关者。他们的决定塑造了你将经历的结果。",
+      "help_panel_title": "开始之前",
+      "help_safe_title": "安全环境",
+      "help_safe_body": "这里的决定不会影响真实结果。放心练习。",
+      "help_no_right_title": "没有唯一正确答案",
+      "help_no_right_body": "两个选项都涉及真实的权衡。反思你的推理过程。",
+      "help_replay_title": "多次尝试",
+      "help_replay_body": "尝试两条路径以了解完整的后果范围。",
+      "rail_brief_tip": "简报",
+      "rail_cast_tip": "角色",
+      "rail_help_tip": "帮助",
+      "badge_en": "ZH",
+      "option_label": "选项",
+      "speech_locale": "zh-CN"
+    }
+  },
+  "ne": {
+    "nodes": {
+      "context": {
+        "type": "context",
+        "next_node_id": "text_image",
+        "step_badge": "1 सन्दर्भ",
+        "title": "नयाँ ग्राहक अवसर",
+        "body": "तपाईं SchoolSims को नेतृत्व गर्नुहुन्छ। एउटा कलेजले हस्ताक्षर गर्नुअघि नयाँ सुविधा अनुरोध गर्दछ। तपाईंको टोलीको क्षमता सीमित छ। तपाईंको सिकाइ उद्देश्य छोटो अवधिको राजस्व, डेलिभरी क्षमता र ग्राहक विश्वास बीच सन्तुलन कायम गर्नु हो।",
+        "learning_objective_label": "सिकाइ उद्देश्य",
+        "learning_objective_body": "छोटो अवधिको राजस्व, डेलिभरी क्षमता र ग्राहक विश्वास बीच सन्तुलन कायम गर्नुहोस्।"
+      },
+      "text_image": {
+        "type": "text_image",
+        "next_node_id": "video",
+        "step_badge": "2 पाठ र छवि",
+        "title": "ग्राहकको अनुरोध",
+        "body": "कलेजले चार हप्तामा सुविधा चाहन्छ। तपाईंका विकासकर्ताहरूसँग पहिले नै प्रतिबद्धताहरू छन्।",
+        "character_name": "Jordan Chen",
+        "character_title": "डिजिटल शिक्षा उपाध्यक्ष",
+        "character_alt": "Jordan Chen को चित्र, डिजिटल शिक्षा उपाध्यक्ष",
+        "ti_point1": "४ हप्ताको डेलिभरी समयरेखा अनुरोध गरिएको",
+        "ti_point2": "विकास टोली पहिले नै पूर्ण क्षमतामा"
+      },
+      "video": {
+        "type": "video",
+        "next_node_id": "decision",
+        "step_badge": "3 भिडियो",
+        "quote": "के हामी चार हप्ताको प्रतिबद्धता गर्न सक्छौं?",
+        "watch_listen_title": "हेर्नुहोस् र सुन्नुहोस्",
+        "watch_listen_body": "ग्राहकको अत्यावश्यकतामा ध्यान दिनुहोस्। यसले अर्को स्लाइडमा तपाईंले अनुभव गर्ने निर्णय दबाबलाई आकार दिन्छ।"
+      },
+      "decision": {
+        "type": "decision",
+        "next_node_id": null,
+        "step_badge": "4 निर्णय",
+        "prompt": "तपाईं के गर्नुहुन्छ?",
+        "keyboard_hint": "निर्णय गर्न [A] वा [B] थिच्नुहोस्",
+        "choices": [
+          { "id": "A", "label": "A समयसीमामा प्रतिबद्ध हुनुहोस्", "target_node_id": "outcome_a" },
+          { "id": "B", "label": "B चरणबद्ध पाइलट प्रस्ताव गर्नुहोस्", "target_node_id": "outcome_b" }
+        ]
+      },
+      "outcome_a": {
+        "type": "outcome",
+        "next_node_id": "summary",
+        "step_badge": "5A परिणाम A",
+        "you_chose": "तपाईंले A रोज्नुभयो",
+        "title": "डेलिभरी दबाब",
+        "body": "ग्राहक सहमत हुन्छ। तपाईंको टोलीले विद्यमान प्रतिबद्धताहरू पुन: वार्ता गर्नुपर्छ।",
+        "impacts": [
+          { "key": "revenue", "label": "राजस्व", "direction": "up", "body": "कलेजसँग छोटो अवधिको सम्झौता सुरक्षित भयो" },
+          { "key": "capacity", "label": "क्षमता", "direction": "down", "body": "टोली अत्यधिक भारित, प्रतिबद्धताहरू पुन: वार्ता गरियो" },
+          { "key": "trust", "label": "विश्वास", "direction": "mid", "body": "दबाबमा डेलिभरी ढिला भएमा जोखिममा" }
+        ]
+      },
+      "outcome_b": {
+        "type": "outcome",
+        "next_node_id": "summary",
+        "step_badge": "5B परिणाम B",
+        "you_chose": "तपाईंले B रोज्नुभयो",
+        "title": "सानो पहिलो कदम",
+        "body": "ग्राहकले सहमत दायरा र समयरेखासहितको सीमित पाइलट समीक्षा गर्दछ।",
+        "impacts": [
+          { "key": "revenue", "label": "राजस्व", "direction": "mid", "body": "बन्द हुन ढिलो — पहिले पाइलट, पछि पूर्ण सम्झौता" },
+          { "key": "capacity", "label": "क्षमता", "direction": "up", "body": "विद्यमान प्रतिबद्धताहरू सुरक्षित" },
+          { "key": "trust", "label": "विश्वास", "direction": "up", "body": "पारदर्शी अपेक्षा सेटिङले विश्वास निर्माण गर्छ" }
+        ]
+      },
+      "summary": {
+        "type": "summary",
+        "next_node_id": null,
+        "step_badge": "6 सारांश",
+        "title": "आफ्नो निर्णयमाथि चिन्तन गर्नुहोस्",
+        "reflection_prompt_label": "चिन्तन प्रश्न",
+        "question": "तपाईंको छनोटले राजस्व, क्षमता र विश्वासलाई कसरी सन्तुलन गर्यो?"
+      }
+    },
+    "ui": {
+      "start_btn": "सिमुलेसन सुरु गर्नुहोस्",
+      "back_btn": "पछाडि",
+      "next_btn": "अर्को",
+      "restart_btn": "सिमुलेसन पुन: सुरु गर्नुहोस्",
+      "lang_label": "भाषा",
+      "eth_label": "पात्रको जातीयता",
+      "ethnicity_labels": {
+        "african": "अफ्रिकी",
+        "caucasian": "कोकेसियन",
+        "east_asian": "पूर्व एसियाली",
+        "latin": "ल्याटिन",
+        "south_asian": "दक्षिण एसियाली"
+      },
+      "language_labels": {
+        "en": "English",
+        "es": "Español",
+        "ar": "العربية",
+        "zh": "中文",
+        "ne": "नेपाली",
+        "sw": "Kiswahili",
+        "ur": "اردو"
+      },
+      "sim_title": "नेतृत्व निर्णय सिमुलेसन",
+      "setup_subtitle": "यथार्थपरक नेतृत्व परिदृश्यहरू अनुभव गर्नुहोस् र सुरक्षित, चिन्तनशील वातावरणमा महत्वपूर्ण निर्णय लिने सीपहरू विकास गर्नुहोस्।",
+      "before_you_begin_title": "सुरु गर्नुअघि",
+      "before_you_begin_body": "यो अभ्यासको लागि सुरक्षित वातावरण हो। एउटा मात्र सही उत्तर छैन — दुवै मार्गहरू अन्वेषण गर्नुहोस् ताकि सम्पूर्ण ट्रेड-अफहरू बुझ्न सकियोस्।",
+      "sim_error_title": "सिमुलेसन लोड गर्न असफल",
+      "sim_error_body": "सिमुलेसन सेवामा जोड्न सकिएन। कृपया आफ्नो जडान जाँच गर्नुहोस् र पुन: प्रयास गर्नुहोस्।",
+      "retry_btn": "पुन: प्रयास",
+      "brief_scenario_label": "परिदृश्य",
+      "brief_scenario_body": "तपाईं SchoolSims को नेतृत्व गर्नुहुन्छ। एउटा कलेजले हस्ताक्षर गर्नुअघि नयाँ सुविधा अनुरोध गर्दछ। तपाईंको टोलीको क्षमता सीमित छ।",
+      "brief_objective_label": "सिकाइ उद्देश्य",
+      "brief_objective_body": "छोटो अवधिको राजस्व, डेलिभरी क्षमता र ग्राहक विश्वास बीच सन्तुलन कायम गर्नुहोस्।",
+      "cast_panel_label": "पात्रहरू",
+      "cast_panel_subtitle": "मुख्य पात्र",
+      "cast_panel_body": "यो पात्रले तपाईंको परिदृश्यमा बाह्य सरोकारवालालाई प्रतिनिधित्व गर्दछ। उनीहरूको निर्णयले तपाईंले अनुभव गर्ने परिणामहरू आकार दिन्छ।",
+      "help_panel_title": "सुरु गर्नुअघि",
+      "help_safe_title": "सुरक्षित वातावरण",
+      "help_safe_body": "यहाँका निर्णयहरूले वास्तविक परिणामहरूलाई असर गर्दैनन्। स्वतन्त्र रूपमा अभ्यास गर्नुहोस्।",
+      "help_no_right_title": "एउटा मात्र सही उत्तर छैन",
+      "help_no_right_body": "दुवै विकल्पहरूमा वास्तविक ट्रेड-अफहरू छन्। आफ्नो तर्कमाथि चिन्तन गर्नुहोस्।",
+      "help_replay_title": "धेरै पटक खेल्नुहोस्",
+      "help_replay_body": "सम्पूर्ण परिणामहरूको दायरा बुझ्न दुवै मार्गहरू प्रयास गर्नुहोस्।",
+      "rail_brief_tip": "सारांश",
+      "rail_cast_tip": "पात्रहरू",
+      "rail_help_tip": "सहायता",
+      "badge_en": "NE",
+      "option_label": "विकल्प",
+      "speech_locale": "ne-NP"
+    }
+  },
+  "sw": {
+    "nodes": {
+      "context": {
+        "type": "context",
+        "next_node_id": "text_image",
+        "step_badge": "1 Muktadha",
+        "title": "Fursa mpya ya mteja",
+        "body": "Unaongoza SchoolSims. Chuo kikuu kinaomba kipengele kipya kabla ya kusaini. Timu yako ina uwezo mdogo. Lengo lako la kujifunza ni kupima mapato ya muda mfupi dhidi ya uwezo wa utoaji na uaminifu wa mteja.",
+        "learning_objective_label": "Lengo la Kujifunza",
+        "learning_objective_body": "Pima mapato ya muda mfupi dhidi ya uwezo wa utoaji na uaminifu wa mteja."
+      },
+      "text_image": {
+        "type": "text_image",
+        "next_node_id": "video",
+        "step_badge": "2 Maandishi na picha",
+        "title": "Ombi la mteja",
+        "body": "Chuo kikuu kinataka kipengele hicho ndani ya wiki nne. Watengenezaji wako tayari wana ahadi nyingine.",
+        "character_name": "Jordan Chen",
+        "character_title": "Makamu wa Rais wa Ujifunzaji wa Kidijitali",
+        "character_alt": "Picha ya Jordan Chen, Makamu wa Rais wa Ujifunzaji wa Kidijitali",
+        "ti_point1": "Ratiba ya utoaji ya wiki 4 imeombwa",
+        "ti_point2": "Timu ya maendeleo tayari imejaa"
+      },
+      "video": {
+        "type": "video",
+        "next_node_id": "decision",
+        "step_badge": "3 Video",
+        "quote": "Je, tunaweza kujitolea kwa wiki nne?",
+        "watch_listen_title": "Tazama na Sikiliza",
+        "watch_listen_body": "Zingatia dharura ya mteja. Itaunda shinikizo la uamuzi utakalohisi kwenye slaidi inayofuata."
+      },
+      "decision": {
+        "type": "decision",
+        "next_node_id": null,
+        "step_badge": "4 Uamuzi",
+        "prompt": "Utafanya nini?",
+        "keyboard_hint": "Bonyeza [A] au [B] kuamua",
+        "choices": [
+          { "id": "A", "label": "A Jitolee kwa tarehe ya mwisho", "target_node_id": "outcome_a" },
+          { "id": "B", "label": "B Pendekeza jaribio la awamu", "target_node_id": "outcome_b" }
+        ]
+      },
+      "outcome_a": {
+        "type": "outcome",
+        "next_node_id": "summary",
+        "step_badge": "5A Matokeo A",
+        "you_chose": "Umechagua A",
+        "title": "Shinikizo la utoaji",
+        "body": "Mteja anakubali. Timu yako lazima ijadiliane upya ahadi zilizopo.",
+        "impacts": [
+          { "key": "revenue", "label": "Mapato", "direction": "up", "body": "Mkataba wa muda mfupi umepatikana na chuo kikuu" },
+          { "key": "capacity", "label": "Uwezo", "direction": "down", "body": "Timu imezidiwa, ahadi zimejadiliwa upya" },
+          { "key": "trust", "label": "Uaminifu", "direction": "mid", "body": "Hatari ikiwa utoaji unachelewa chini ya shinikizo" }
+        ]
+      },
+      "outcome_b": {
+        "type": "outcome",
+        "next_node_id": "summary",
+        "step_badge": "5B Matokeo B",
+        "you_chose": "Umechagua B",
+        "title": "Hatua ndogo ya kwanza",
+        "body": "Mteja anapitia jaribio dogo lenye upeo na ratiba iliyokubaliwa.",
+        "impacts": [
+          { "key": "revenue", "label": "Mapato", "direction": "mid", "body": "Polepole kufunga — jaribio kwanza, mkataba kamili baadaye" },
+          { "key": "capacity", "label": "Uwezo", "direction": "up", "body": "Ahadi zilizopo zimehifadhiwa" },
+          { "key": "trust", "label": "Uaminifu", "direction": "up", "body": "Kuweka matarajio kwa uwazi kunaimarisha uaminifu" }
+        ]
+      },
+      "summary": {
+        "type": "summary",
+        "next_node_id": null,
+        "step_badge": "6 Muhtasari",
+        "title": "Tafakari juu ya uamuzi wako",
+        "reflection_prompt_label": "Swali la Kutafakari",
+        "question": "Chaguo lako lilisawazisha vipi mapato, uwezo na uaminifu?"
+      }
+    },
+    "ui": {
+      "start_btn": "Anza Uigizaji",
+      "back_btn": "Rudi",
+      "next_btn": "Ifuatayo",
+      "restart_btn": "Anzisha Upya Uigizaji",
+      "lang_label": "Lugha",
+      "eth_label": "Kabila la Mhusika",
+      "ethnicity_labels": {
+        "african": "Mwafrika",
+        "caucasian": "Mkaukasia",
+        "east_asian": "Mwasia wa Mashariki",
+        "latin": "Mlatino",
+        "south_asian": "Mwasia wa Kusini"
+      },
+      "language_labels": {
+        "en": "English",
+        "es": "Español",
+        "ar": "العربية",
+        "zh": "中文",
+        "ne": "नेपाली",
+        "sw": "Kiswahili",
+        "ur": "اردو"
+      },
+      "sim_title": "Uigizaji wa Uamuzi wa Uongozi",
+      "setup_subtitle": "Pitia hali halisi za uongozi na kuendeleza ujuzi muhimu wa kufanya maamuzi katika mazingira salama na ya kutafakari.",
+      "before_you_begin_title": "Kabla ya Kuanza",
+      "before_you_begin_body": "Hii ni mazingira salama ya kufanya mazoezi. Hakuna jibu moja sahihi — chunguza njia zote mbili kuelewa anuwai kamili ya makubaliano.",
+      "sim_error_title": "Imeshindwa kupakia uigizaji",
+      "sim_error_body": "Haikuweza kuunganishwa na huduma ya uigizaji. Tafadhali angalia muunganisho wako na ujaribu tena.",
+      "retry_btn": "Jaribu Tena",
+      "brief_scenario_label": "Hali",
+      "brief_scenario_body": "Unaongoza SchoolSims. Chuo kikuu kinaomba kipengele kipya kabla ya kusaini. Timu yako ina uwezo mdogo.",
+      "brief_objective_label": "Lengo la Kujifunza",
+      "brief_objective_body": "Pima mapato ya muda mfupi dhidi ya uwezo wa utoaji na uaminifu wa mteja.",
+      "cast_panel_label": "Wahusika",
+      "cast_panel_subtitle": "Mhusika Mkuu",
+      "cast_panel_body": "Mhusika huyu anawakilisha mdau wa nje katika hali yako. Maamuzi yao yanaunda matokeo utakayopitia.",
+      "help_panel_title": "Kabla ya Kuanza",
+      "help_safe_title": "Mazingira Salama",
+      "help_safe_body": "Maamuzi hapa hayaathiri matokeo halisi. Fanya mazoezi kwa uhuru.",
+      "help_no_right_title": "Hakuna Jibu Moja Sahihi",
+      "help_no_right_body": "Chaguzi zote mbili zinajumuisha makubaliano halisi. Tafakari juu ya mantiki yako.",
+      "help_replay_title": "Cheza Mara Nyingi",
+      "help_replay_body": "Jaribu njia zote mbili kuelewa anuwai kamili ya matokeo.",
+      "rail_brief_tip": "Muhtasari",
+      "rail_cast_tip": "Wahusika",
+      "rail_help_tip": "Msaada",
+      "badge_en": "SW",
+      "option_label": "Chaguo",
+      "speech_locale": "sw-KE"
+    }
+  },
+  "ur": {
+    "nodes": {
+      "context": {
+        "type": "context",
+        "next_node_id": "text_image",
+        "step_badge": "1 سیاق و سباق",
+        "title": "ایک نیا گاہک کا موقع",
+        "body": "آپ SchoolSims کی قیادت کرتے ہیں۔ ایک کالج دستخط سے پہلے ایک نئی خصوصیت کی درخواست کرتا ہے۔ آپ کی ٹیم کی صلاحیت محدود ہے۔ آپ کا سیکھنے کا مقصد قلیل مدتی آمدنی کو ترسیل کی صلاحیت اور گاہک کے اعتماد کے مقابلے میں تولنا ہے۔",
+        "learning_objective_label": "سیکھنے کا مقصد",
+        "learning_objective_body": "قلیل مدتی آمدنی کو ترسیل کی صلاحیت اور گاہک کے اعتماد کے مقابلے میں تولیں۔"
+      },
+      "text_image": {
+        "type": "text_image",
+        "next_node_id": "video",
+        "step_badge": "2 متن اور تصویر",
+        "title": "گاہک کی درخواست",
+        "body": "کالج چار ہفتوں میں خصوصیت چاہتا ہے۔ آپ کے ڈویلپرز کے پاس پہلے سے وعدے ہیں۔",
+        "character_name": "Jordan Chen",
+        "character_title": "ڈیجیٹل لرننگ کے نائب صدر",
+        "character_alt": "Jordan Chen کی تصویر، ڈیجیٹل لرننگ کے نائب صدر",
+        "ti_point1": "4 ہفتے کی ترسیل کی ٹائم لائن کی درخواست",
+        "ti_point2": "ترقیاتی ٹیم پہلے سے پوری صلاحیت پر"
+      },
+      "video": {
+        "type": "video",
+        "next_node_id": "decision",
+        "step_badge": "3 ویڈیو",
+        "quote": "کیا ہم چار ہفتوں کا عہد کر سکتے ہیں؟",
+        "watch_listen_title": "دیکھیں اور سنیں",
+        "watch_listen_body": "گاہک کی فوری ضرورت پر توجہ دیں۔ یہ اگلی سلائیڈ پر آپ کے فیصلے کے دباؤ کو تشکیل دے گی۔"
+      },
+      "decision": {
+        "type": "decision",
+        "next_node_id": null,
+        "step_badge": "4 فیصلہ",
+        "prompt": "آپ کیا کریں گے؟",
+        "keyboard_hint": "فیصلہ کرنے کے لیے [A] یا [B] دبائیں",
+        "choices": [
+          { "id": "A", "label": "A آخری تاریخ کا عہد کریں", "target_node_id": "outcome_a" },
+          { "id": "B", "label": "B مرحلہ وار پائلٹ تجویز کریں", "target_node_id": "outcome_b" }
+        ]
+      },
+      "outcome_a": {
+        "type": "outcome",
+        "next_node_id": "summary",
+        "step_badge": "5A نتیجہ A",
+        "you_chose": "آپ نے A چنا",
+        "title": "ترسیل کا دباؤ",
+        "body": "گاہک راضی ہو جاتا ہے۔ آپ کی ٹیم کو موجودہ وعدوں پر دوبارہ بات چیت کرنی ہوگی۔",
+        "impacts": [
+          { "key": "revenue", "label": "آمدنی", "direction": "up", "body": "کالج کے ساتھ قلیل مدتی معاہدہ محفوظ ہو گیا" },
+          { "key": "capacity", "label": "صلاحیت", "direction": "down", "body": "ٹیم پر زیادہ بوجھ، وعدوں پر دوبارہ بات چیت ہوئی" },
+          { "key": "trust", "label": "اعتماد", "direction": "mid", "body": "دباؤ میں ترسیل میں تاخیر ہو تو خطرے میں" }
+        ]
+      },
+      "outcome_b": {
+        "type": "outcome",
+        "next_node_id": "summary",
+        "step_badge": "5B نتیجہ B",
+        "you_chose": "آپ نے B چنا",
+        "title": "ایک چھوٹا پہلا قدم",
+        "body": "گاہک متفقہ دائرہ کار اور ٹائم لائن کے ساتھ ایک محدود پائلٹ کا جائزہ لیتا ہے۔",
+        "impacts": [
+          { "key": "revenue", "label": "آمدنی", "direction": "mid", "body": "بند ہونے میں سست — پہلے پائلٹ، بعد میں مکمل معاہدہ" },
+          { "key": "capacity", "label": "صلاحیت", "direction": "up", "body": "موجودہ وعدے محفوظ رہے" },
+          { "key": "trust", "label": "اعتماد", "direction": "up", "body": "شفاف توقعات طے کرنا اعتماد بناتا ہے" }
+        ]
+      },
+      "summary": {
+        "type": "summary",
+        "next_node_id": null,
+        "step_badge": "6 خلاصہ",
+        "title": "اپنے فیصلے پر غور کریں",
+        "reflection_prompt_label": "غور و فکر کا سوال",
+        "question": "آپ کے انتخاب نے آمدنی، صلاحیت اور اعتماد میں کیسے توازن رکھا؟"
+      }
+    },
+    "ui": {
+      "start_btn": "سمیولیشن شروع کریں",
+      "back_btn": "واپس",
+      "next_btn": "اگلا",
+      "restart_btn": "سمیولیشن دوبارہ شروع کریں",
+      "lang_label": "زبان",
+      "eth_label": "کردار کی نسل",
+      "ethnicity_labels": {
+        "african": "افریقی",
+        "caucasian": "قفقازی",
+        "east_asian": "مشرقی ایشیائی",
+        "latin": "لاطینی",
+        "south_asian": "جنوبی ایشیائی"
+      },
+      "language_labels": {
+        "en": "English",
+        "es": "Español",
+        "ar": "العربية",
+        "zh": "中文",
+        "ne": "नेपाली",
+        "sw": "Kiswahili",
+        "ur": "اردو"
+      },
+      "sim_title": "قیادت کے فیصلے کی سمیولیشن",
+      "setup_subtitle": "حقیقت پسندانہ قیادت کے منظرناموں کا تجربہ کریں اور محفوظ، غور و فکر والے ماحول میں اہم فیصلہ سازی کی مہارتیں تیار کریں۔",
+      "before_you_begin_title": "شروع کرنے سے پہلے",
+      "before_you_begin_body": "یہ مشق کے لیے ایک محفوظ ماحول ہے۔ کوئی ایک صحیح جواب نہیں ہے — سمجھوتوں کی مکمل حد کو سمجھنے کے لیے دونوں راستے دریافت کریں۔",
+      "sim_error_title": "سمیولیشن لوڈ کرنے میں ناکامی",
+      "sim_error_body": "سمیولیشن سروس سے رابطہ نہیں ہو سکا۔ براہ کرم اپنا کنکشن چیک کریں اور دوبارہ کوشش کریں۔",
+      "retry_btn": "دوبارہ کوشش کریں",
+      "brief_scenario_label": "منظرنامہ",
+      "brief_scenario_body": "آپ SchoolSims کی قیادت کرتے ہیں۔ ایک کالج دستخط سے پہلے ایک نئی خصوصیت کی درخواست کرتا ہے۔ آپ کی ٹیم کی صلاحیت محدود ہے۔",
+      "brief_objective_label": "سیکھنے کا مقصد",
+      "brief_objective_body": "قلیل مدتی آمدنی کو ترسیل کی صلاحیت اور گاہک کے اعتماد کے مقابلے میں تولیں۔",
+      "cast_panel_label": "کردار",
+      "cast_panel_subtitle": "نمایاں کردار",
+      "cast_panel_body": "یہ کردار آپ کے منظرنامے میں بیرونی اسٹیک ہولڈر کی نمائندگی کرتا ہے۔ ان کے فیصلے آپ کے تجربے کے نتائج کو تشکیل دیتے ہیں۔",
+      "help_panel_title": "شروع کرنے سے پہلے",
+      "help_safe_title": "محفوظ ماحول",
+      "help_safe_body": "یہاں کے فیصلے حقیقی نتائج پر اثر نہیں ڈالتے۔ آزادی سے مشق کریں۔",
+      "help_no_right_title": "کوئی ایک صحیح جواب نہیں",
+      "help_no_right_body": "دونوں اختیارات میں حقیقی سمجھوتے شامل ہیں۔ اپنی دلیل پر غور کریں۔",
+      "help_replay_title": "کئی بار کھیلیں",
+      "help_replay_body": "نتائج کی مکمل حد کو سمجھنے کے لیے دونوں راستے آزمائیں۔",
+      "rail_brief_tip": "خلاصہ",
+      "rail_cast_tip": "کردار",
+      "rail_help_tip": "مدد",
+      "badge_en": "UR",
+      "option_label": "اختیار",
+      "speech_locale": "ur-PK"
     }
   }
 }

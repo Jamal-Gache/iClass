@@ -6,9 +6,14 @@ from elevenlabs import ElevenLabs
 CACHE_DIR = Path(__file__).parent / "tts_cache"
 CACHE_DIR.mkdir(exist_ok=True)
 
+TTS_SUPPORTED_LANGS = {"en", "es", "ar", "zh", "ur"}
 
-def get_or_generate(text: str) -> str:
+
+def get_or_generate(text: str, lang: str = "en") -> str | None:
     """Return cached MP3 filename. Calls ElevenLabs on cache miss."""
+    if lang not in TTS_SUPPORTED_LANGS:
+        return None
+
     voice_id = os.getenv("ELEVEN_LABS_VOICE_ID", "JBFqnCBsd6RMkjVDRZzb")
     model_id = os.getenv("ELEVEN_LABS_MODEL", "eleven_v4")
 
