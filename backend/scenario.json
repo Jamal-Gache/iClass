@@ -113,7 +113,8 @@
       "rail_cast_tip": "Cast",
       "rail_help_tip": "Help",
       "badge_en": "EN",
-      "option_label": "Option"
+      "option_label": "Option",
+      "speech_locale": "en-US"
     }
   },
   "es": {
@@ -229,7 +230,8 @@
       "rail_cast_tip": "Reparto",
       "rail_help_tip": "Ayuda",
       "badge_en": "ES",
-      "option_label": "Opción"
+      "option_label": "Opción",
+      "speech_locale": "es-ES"
     }
   }
 }

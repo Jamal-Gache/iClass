@@ -1,4 +1,5 @@
 import type { OutcomeNode, ImpactDirection } from '../types';
+import { useSpeech } from '../hooks/useSpeech';
 
 const IMPACT_STYLE: Record<ImpactDirection, { wrap: string; label: string; body: string; stroke: string; icon: string }> = {
   up:   { wrap: 'impact-up',   label: '#15803d', body: '#166534', stroke: '#16a34a', icon: 'M23 6l-9.5 9.5-5-5L1 18' },
@@ -6,7 +7,8 @@ const IMPACT_STYLE: Record<ImpactDirection, { wrap: string; label: string; body:
   mid:  { wrap: 'impact-mid',  label: '#b45309', body: '#92400e', stroke: '#d97706', icon: 'M5 12h14' },
 };
 
-export default function OutcomeSlide({ node }: { node: OutcomeNode }) {
+export default function OutcomeSlide({ node, audioUrl, speechEnabled }: { node: OutcomeNode; audioUrl: string | null; speechEnabled: boolean }) {
+  useSpeech(audioUrl, speechEnabled);
   return (
     <div className="main-card slide-enter" style={{ maxWidth: 1020, width: '100%', padding: 60 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>

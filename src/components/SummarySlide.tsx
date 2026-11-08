@@ -1,4 +1,5 @@
 import type { SummaryNode, OutcomeNode } from '../types';
+import { useSpeech } from '../hooks/useSpeech';
 
 interface Props {
   node: SummaryNode;
@@ -6,9 +7,12 @@ interface Props {
   optionLabel: string;
   restartLabel: string;
   onRestart: () => void;
+  audioUrl: string | null;
+  speechEnabled: boolean;
 }
 
-export default function SummarySlide({ node, chosenNode, optionLabel, restartLabel, onRestart }: Props) {
+export default function SummarySlide({ node, chosenNode, optionLabel, restartLabel, onRestart, audioUrl, speechEnabled }: Props) {
+  useSpeech(audioUrl, speechEnabled);
   return (
     <div className="main-card slide-enter" style={{ maxWidth: 1020, width: '100%', padding: 60 }}>
       <span className="step-badge" style={{ marginBottom: 20, display: 'inline-block' }}>{node.step_badge}</span>

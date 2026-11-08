@@ -5,11 +5,18 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from typing import Any
 import json, copy
+from dotenv import load_dotenv
+from tts import get_or_generate, CACHE_DIR
 
 BASE_DIR = Path(__file__).parent
+load_dotenv(BASE_DIR / ".env")  # backend/.env
+load_dotenv(BASE_DIR.parent / ".env.local", override=False)  # project root .env.local (ElevenLabs key)
 DIST_DIR = BASE_DIR.parent / "dist"
 
 app = FastAPI(title="SchoolSims Player")
+
+# Serve cached TTS audio files
+app.mount("/tts", StaticFiles(directory=str(CACHE_DIR)), name="tts")
 
 with open(BASE_DIR / "scenario.json") as f:
     SCENARIO: dict = json.load(f)
@@ -38,7 +45,7 @@ def get_simulation(
         "nodes": SCENARIO[lang]["nodes"],
         "ui": SCENARIO[lang]["ui"],
         "media": {
-            "photo": f"/assets/{ethnicity}_photo.jpg",
+            "photo": f"/assets/{ethnicity}_photo.{'png' if ethnicity == 'black' else 'jpg'}",
             "video_template": f"/assets/{ethnicity}_{lang}.mp4",
             "photo_alt": "Character portrait",
         },
@@ -49,6 +56,18 @@ class ScenarioUpdate(BaseModel):
     start_node_id: str
     nodes: dict[str, Any]
     ui: dict[str, Any]
+
+
+@app.post("/api/tts/preload")
+def tts_preload(body: dict):
+    """Generate (or return cached) ElevenLabs MP3s for all slide texts."""
+    texts: dict = body.get("texts", {})
+    result = {}
+    for node_id, text in texts.items():
+        if text:
+            filename = get_or_generate(text)
+            result[node_id] = f"/tts/{filename}"
+    return result
 
 
 @app.post("/api/scenario/{lang}")

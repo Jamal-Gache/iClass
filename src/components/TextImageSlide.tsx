@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import type { TextImageNode } from '../types';
+import { useSpeech } from '../hooks/useSpeech';
 
-export default function TextImageSlide({ node, photoUrl, photoAlt }: { node: TextImageNode; photoUrl: string; photoAlt: string }) {
+export default function TextImageSlide({ node, photoUrl, photoAlt, audioUrl, speechEnabled }: { node: TextImageNode; photoUrl: string; photoAlt: string; audioUrl: string | null; speechEnabled: boolean }) {
+  useSpeech(audioUrl, speechEnabled);
   const [imgErr, setImgErr] = useState(false);
   return (
     <div className="main-card slide-enter" style={{ maxWidth: 1020, width: '100%', padding: 60 }}>

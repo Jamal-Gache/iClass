@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { VideoNode } from '../types';
+import { useSpeech } from '../hooks/useSpeech';
 
 interface Props {
   node: VideoNode;
@@ -7,9 +8,12 @@ interface Props {
   captionsUrl: string;
   captionsOn: boolean;
   onToggleCaptions: () => void;
+  audioUrl: string | null;
+  speechEnabled: boolean;
 }
 
-export default function VideoSlide({ node, videoUrl, captionsUrl, captionsOn, onToggleCaptions }: Props) {
+export default function VideoSlide({ node, videoUrl, captionsUrl, captionsOn, onToggleCaptions, audioUrl, speechEnabled }: Props) {
+  useSpeech(audioUrl, speechEnabled);
   const [vidErr, setVidErr] = useState(false);
   const [retryKey, setRetryKey] = useState(0);
 

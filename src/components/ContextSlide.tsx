@@ -1,6 +1,8 @@
 import type { ContextNode } from '../types';
+import { useSpeech } from '../hooks/useSpeech';
 
-export default function ContextSlide({ node }: { node: ContextNode }) {
+export default function ContextSlide({ node, audioUrl, speechEnabled }: { node: ContextNode; audioUrl: string | null; speechEnabled: boolean }) {
+  useSpeech(audioUrl, speechEnabled);
   return (
     <div className="main-card slide-enter" style={{ maxWidth: 1020, width: '100%', padding: 60 }}>
       <span id="ctx-badge" className="step-badge" style={{ marginBottom: 20, display: 'inline-block' }}>{node.step_badge}</span>

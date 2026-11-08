@@ -1,12 +1,16 @@
 import type { DecisionNode } from '../types';
+import { useSpeech } from '../hooks/useSpeech';
 
 interface Props {
   node: DecisionNode;
   chosenId: string | null;
   onChoose: (targetNodeId: string, choiceId: string) => void;
+  audioUrl: string | null;
+  speechEnabled: boolean;
 }
 
-export default function DecisionSlide({ node, chosenId, onChoose }: Props) {
+export default function DecisionSlide({ node, chosenId, onChoose, audioUrl, speechEnabled }: Props) {
+  useSpeech(audioUrl, speechEnabled);
   return (
     <div className="main-card slide-enter" style={{ maxWidth: 1020, width: '100%', padding: 60 }}>
       <span id="dec-badge" className="step-badge" style={{ marginBottom: 20, display: 'inline-block' }}>{node.step_badge}</span>

@@ -109,6 +109,7 @@ export interface UIStrings {
   rail_help_tip: string;
   badge_en: string;
   option_label: string;
+  speech_locale: string;
 }
 
 export interface Media {
@@ -123,6 +124,8 @@ export interface SimData {
   ui: UIStrings;
   media: Media;
 }
+
+export type AudioMap = Record<string, string>; // node_id → /tts/xxx.mp3
 
 export type Lang = 'en' | 'es';
 export type Ethnicity = 'black' | 'east_asian';

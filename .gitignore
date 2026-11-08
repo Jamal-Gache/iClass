@@ -3,6 +3,7 @@ __pycache__/
 *.pyc
 node_modules/
 .env
+backend/tts_cache/
 .claude/
 *.egg-info/
 dist/
@@ -18,6 +19,11 @@ CLAUDE.md
 .aider*
 .copilot/
 .github/copilot-instructions.md
+.clinerules/
+.opencode/
+AGENTS.md
 *.claude
 verify_ui.mjs
 screenshots/
+# Local secrets written by `elevenlabs onboard`
+/.env.local

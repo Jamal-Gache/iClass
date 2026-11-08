@@ -1,3 +1,5 @@
+import SpeechToggle from './SpeechToggle';
+
 interface HeaderProps {
   simTitle: string;
   progress: number;
@@ -5,6 +7,8 @@ interface HeaderProps {
   timerSecs: number;
   lang: string | null;
   ethnicity: string | null;
+  speechEnabled: boolean;
+  onToggleSpeech: () => void;
 }
 
 function fmt(s: number) {
@@ -13,7 +17,7 @@ function fmt(s: number) {
   return `${m}:${sec}`;
 }
 
-export default function Header({ simTitle, progress, slideLabel, timerSecs, lang, ethnicity }: HeaderProps) {
+export default function Header({ simTitle, progress, slideLabel, timerSecs, lang, ethnicity, speechEnabled, onToggleSpeech }: HeaderProps) {
   return (
     <header className="header-bar" style={{ height: 56, padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0, zIndex: 20 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
@@ -40,6 +44,7 @@ export default function Header({ simTitle, progress, slideLabel, timerSecs, lang
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
         {lang && <span id="badge-lang" className="step-badge" style={{ color: 'var(--text-2)', background: 'var(--surface2)', borderColor: 'var(--border2)' }}>{lang}</span>}
         {ethnicity && <span id="badge-eth" className="step-badge">{ethnicity}</span>}
+        <SpeechToggle enabled={speechEnabled} onToggle={onToggleSpeech} />
         <div style={{ display: 'flex', alignItems: 'center', gap: 5, background: 'var(--surface2)', border: '1px solid var(--border)', borderRadius: 8, padding: '5px 10px' }}>
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           <span id="timer" className="tabular" style={{ fontSize: 12, fontWeight: 500, color: 'var(--text-2)', fontFamily: "'DM Mono', monospace" }}>{fmt(timerSecs)}</span>

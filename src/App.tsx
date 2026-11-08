@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import type { SimData, Lang, Ethnicity, ModalType, SimNode } from './types';
+import type { SimData, Lang, Ethnicity, ModalType, SimNode, AudioMap, ContextNode, TextImageNode, OutcomeNode, DecisionNode } from './types';
 import Header from './components/Header';
 import LeftRail from './components/LeftRail';
 import Footer from './components/Footer';
@@ -29,6 +29,8 @@ export default function App() {
   const [modal, setModal] = useState<ModalType>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [speechEnabled, setSpeechEnabled] = useState(true);
+  const [audioMap, setAudioMap] = useState<AudioMap>({});
   const [timerSecs, setTimerSecs] = useState(0);
   const [captionsOn, setCaptionsOn] = useState(true);
 
@@ -46,6 +48,33 @@ export default function App() {
       const r = await fetch(`/api/simulation?lang=${lang}&ethnicity=${ethnicity}`);
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       const data: SimData = await r.json();
+
+      // Build per-slide narration texts and preload ElevenLabs audio
+      const n = data.nodes;
+      const ctx  = n['context']    as ContextNode   | undefined;
+      const ti   = n['text_image'] as TextImageNode  | undefined;
+      const outA = n['outcome_a']  as OutcomeNode    | undefined;
+      const dec  = n['decision']   as DecisionNode   | undefined;
+
+      const texts: Record<string, string> = {
+        context:    [ctx?.body, ctx?.learning_objective_body].filter(Boolean).join(' '),
+        text_image: ti?.body ?? '',
+        decision:   dec ? [dec.prompt, ...dec.choices.map(c => `Option ${c.id}: ${c.label}`)].join('. ') : '',
+        outcome_a:  outA?.body ?? '',
+      };
+
+      const ttsR = await fetch('/api/tts/preload', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ texts }),
+      });
+      if (ttsR.ok) {
+        const map: AudioMap = await ttsR.json();
+        setAudioMap(map);
+      } else {
+        console.error('TTS preload failed:', ttsR.status, await ttsR.text());
+      }
+
       setSimData(data);
       setCurrentNodeId(data.start_node_id);
       setHistoryStack([]);
@@ -127,6 +156,8 @@ export default function App() {
         timerSecs={timerSecs}
         lang={isSetup ? null : lang.toUpperCase()}
         ethnicity={isSetup ? null : (ethnicity === 'black' ? 'Black' : 'East Asian')}
+        speechEnabled={speechEnabled}
+        onToggleSpeech={() => { setSpeechEnabled(s => !s); window.speechSynthesis.cancel(); }}
       />
 
       <div style={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
@@ -161,10 +192,10 @@ export default function App() {
             />
           )}
           {!loading && !error && !isSetup && currentNode?.type === 'context' && (
-            <ContextSlide key={currentNodeId} node={currentNode} />
+            <ContextSlide key={currentNodeId} node={currentNode} audioUrl={audioMap['context'] ?? null} speechEnabled={speechEnabled} />
           )}
           {!loading && !error && !isSetup && currentNode?.type === 'text_image' && simData && (
-            <TextImageSlide key={currentNodeId} node={currentNode} photoUrl={simData.media.photo} photoAlt={currentNode.character_alt} />
+            <TextImageSlide key={currentNodeId} node={currentNode} photoUrl={simData.media.photo} photoAlt={currentNode.character_alt} audioUrl={audioMap['text_image'] ?? null} speechEnabled={speechEnabled} />
           )}
           {!loading && !error && !isSetup && currentNode?.type === 'video' && simData && (
             <VideoSlide
@@ -174,13 +205,15 @@ export default function App() {
               captionsUrl={`/assets/captions_${lang}.vtt`}
               captionsOn={captionsOn}
               onToggleCaptions={() => setCaptionsOn(c => !c)}
+              audioUrl={audioMap['video'] ?? null}
+              speechEnabled={speechEnabled}
             />
           )}
           {!loading && !error && !isSetup && currentNode?.type === 'decision' && (
-            <DecisionSlide key={currentNodeId} node={currentNode} chosenId={chosenId} onChoose={chooseOption} />
+            <DecisionSlide key={currentNodeId} node={currentNode} chosenId={chosenId} onChoose={chooseOption} audioUrl={audioMap['decision'] ?? null} speechEnabled={speechEnabled} />
           )}
           {!loading && !error && !isSetup && currentNode?.type === 'outcome' && (
-            <OutcomeSlide key={currentNodeId} node={currentNode} />
+            <OutcomeSlide key={currentNodeId} node={currentNode} audioUrl={audioMap[currentNodeId] ?? null} speechEnabled={speechEnabled} />
           )}
           {!loading && !error && !isSetup && currentNode?.type === 'summary' && simData && (
             <SummarySlide
@@ -190,6 +223,8 @@ export default function App() {
               optionLabel={ui?.option_label ?? 'Option'}
               restartLabel={ui?.restart_btn ?? 'Restart Simulation'}
               onRestart={restart}
+              audioUrl={audioMap['summary'] ?? null}
+              speechEnabled={speechEnabled}
             />
           )}
         </main>
