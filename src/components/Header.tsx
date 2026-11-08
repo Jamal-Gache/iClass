@@ -21,12 +21,12 @@ export default function Header({ simTitle, progress, slideLabel, timerSecs, lang
   return (
     <header className="header-bar" style={{ height: 56, padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0, zIndex: 20 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
-        <div className="logo-mark">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="12" r="9"/><polyline points="9 12 11 14 15 10"/>
-          </svg>
-        </div>
-        <span style={{ fontWeight: 700, fontSize: 16, color: 'var(--text-1)', letterSpacing: '-0.3px' }}>SchoolSims</span>
+        <img
+          src="/logo.png"
+          alt="iClass"
+          style={{ height: 48, width: 'auto', display: 'block', flexShrink: 0 }}
+        />
+        <span style={{ fontWeight: 700, fontSize: 17, color: 'var(--text-1)', letterSpacing: '-0.3px', flexShrink: 0 }}>iClass</span>
         <div style={{ width: 1, height: 18, background: 'var(--border2)', flexShrink: 0 }} />
         <span id="hdr-sim-title" style={{ fontSize: 13, color: 'var(--text-3)', fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{simTitle}</span>
       </div>
