@@ -117,6 +117,32 @@ def save_scenario(lang: str, body: ScenarioUpdate):
     return {"ok": True}
 
 
+class ReviewPayload(BaseModel):
+    rating: int
+    experience: str
+    improvements: str
+    lang: str
+    ethnicity: str
+    chosen_option: str
+
+
+@app.post("/api/review")
+def submit_review(body: ReviewPayload):
+    if body.rating < 1 or body.rating > 5:
+        raise HTTPException(400, detail="rating must be 1-5")
+    import datetime
+    entry = body.model_dump()
+    entry["timestamp"] = datetime.datetime.utcnow().isoformat()
+    reviews_path = BASE_DIR / "reviews.json"
+    existing = []
+    if reviews_path.exists():
+        existing = json.loads(reviews_path.read_text())
+    existing.append(entry)
+    with open(reviews_path, "w") as f:
+        json.dump(existing, f, indent=2, ensure_ascii=False)
+    return {"ok": True}
+
+
 if DIST_DIR.exists():
     app.mount("/assets", StaticFiles(directory=str(DIST_DIR / "assets")), name="assets")
 

@@ -38,8 +38,16 @@
         "prompt": "What will you do?",
         "keyboard_hint": "Press [A] or [B] to decide",
         "choices": [
-          { "id": "A", "label": "A Commit to the deadline", "target_node_id": "outcome_a" },
-          { "id": "B", "label": "B Propose a phased pilot", "target_node_id": "outcome_b" }
+          {
+            "id": "A",
+            "label": "A Commit to the deadline",
+            "target_node_id": "outcome_a"
+          },
+          {
+            "id": "B",
+            "label": "B Propose a phased pilot",
+            "target_node_id": "outcome_b"
+          }
         ]
       },
       "outcome_a": {
@@ -50,9 +58,24 @@
         "title": "Delivery pressure",
         "body": "The customer agrees. Your team must renegotiate existing commitments.",
         "impacts": [
-          { "key": "revenue", "label": "Revenue", "direction": "up", "body": "Near-term deal secured with the college" },
-          { "key": "capacity", "label": "Capacity", "direction": "down", "body": "Team overextended, commitments renegotiated" },
-          { "key": "trust", "label": "Trust", "direction": "mid", "body": "At risk if delivery slips under pressure" }
+          {
+            "key": "revenue",
+            "label": "Revenue",
+            "direction": "up",
+            "body": "Near-term deal secured with the college"
+          },
+          {
+            "key": "capacity",
+            "label": "Capacity",
+            "direction": "down",
+            "body": "Team overextended, commitments renegotiated"
+          },
+          {
+            "key": "trust",
+            "label": "Trust",
+            "direction": "mid",
+            "body": "At risk if delivery slips under pressure"
+          }
         ]
       },
       "outcome_b": {
@@ -63,9 +86,24 @@
         "title": "A smaller first step",
         "body": "The customer reviews a limited pilot with an agreed scope and timeline.",
         "impacts": [
-          { "key": "revenue", "label": "Revenue", "direction": "mid", "body": "Slower to close — pilot first, full deal later" },
-          { "key": "capacity", "label": "Capacity", "direction": "up", "body": "Existing commitments preserved" },
-          { "key": "trust", "label": "Trust", "direction": "up", "body": "Transparent expectation-setting builds trust" }
+          {
+            "key": "revenue",
+            "label": "Revenue",
+            "direction": "mid",
+            "body": "Slower to close — pilot first, full deal later"
+          },
+          {
+            "key": "capacity",
+            "label": "Capacity",
+            "direction": "up",
+            "body": "Existing commitments preserved"
+          },
+          {
+            "key": "trust",
+            "label": "Trust",
+            "direction": "up",
+            "body": "Transparent expectation-setting builds trust"
+          }
         ]
       },
       "summary": {
@@ -126,7 +164,13 @@
       "rail_help_tip": "Help",
       "badge_en": "EN",
       "option_label": "Option",
-      "speech_locale": "en-US"
+      "speech_locale": "en-US",
+      "review_title": "Rate This Simulation",
+      "review_rating_label": "How would you rate this simulation?",
+      "review_experience_label": "How was your experience?",
+      "review_improvements_label": "Any suggested improvements?",
+      "review_submit_btn": "Submit Feedback",
+      "review_thank_you": "Thank you for your feedback!"
     }
   },
   "es": {
@@ -167,8 +211,16 @@
         "prompt": "¿Qué harás?",
         "keyboard_hint": "Presiona [A] o [B] para decidir",
         "choices": [
-          { "id": "A", "label": "A Comprometerse con la fecha límite", "target_node_id": "outcome_a" },
-          { "id": "B", "label": "B Proponer un piloto por fases", "target_node_id": "outcome_b" }
+          {
+            "id": "A",
+            "label": "A Comprometerse con la fecha límite",
+            "target_node_id": "outcome_a"
+          },
+          {
+            "id": "B",
+            "label": "B Proponer un piloto por fases",
+            "target_node_id": "outcome_b"
+          }
         ]
       },
       "outcome_a": {
@@ -179,9 +231,24 @@
         "title": "Presión de entrega",
         "body": "El cliente acepta. Tu equipo debe renegociar los compromisos existentes.",
         "impacts": [
-          { "key": "revenue", "label": "Ingresos", "direction": "up", "body": "Acuerdo a corto plazo asegurado con la universidad" },
-          { "key": "capacity", "label": "Capacidad", "direction": "down", "body": "Equipo sobrecargado, compromisos renegociados" },
-          { "key": "trust", "label": "Confianza", "direction": "mid", "body": "En riesgo si la entrega se retrasa bajo presión" }
+          {
+            "key": "revenue",
+            "label": "Ingresos",
+            "direction": "up",
+            "body": "Acuerdo a corto plazo asegurado con la universidad"
+          },
+          {
+            "key": "capacity",
+            "label": "Capacidad",
+            "direction": "down",
+            "body": "Equipo sobrecargado, compromisos renegociados"
+          },
+          {
+            "key": "trust",
+            "label": "Confianza",
+            "direction": "mid",
+            "body": "En riesgo si la entrega se retrasa bajo presión"
+          }
         ]
       },
       "outcome_b": {
@@ -192,9 +259,24 @@
         "title": "Un primer paso más pequeño",
         "body": "El cliente revisa un piloto limitado con un alcance y cronograma acordados.",
         "impacts": [
-          { "key": "revenue", "label": "Ingresos", "direction": "mid", "body": "Más lento de cerrar — primero el piloto, luego el acuerdo completo" },
-          { "key": "capacity", "label": "Capacidad", "direction": "up", "body": "Los compromisos existentes se mantienen" },
-          { "key": "trust", "label": "Confianza", "direction": "up", "body": "Establecer expectativas transparentes genera confianza" }
+          {
+            "key": "revenue",
+            "label": "Ingresos",
+            "direction": "mid",
+            "body": "Más lento de cerrar — primero el piloto, luego el acuerdo completo"
+          },
+          {
+            "key": "capacity",
+            "label": "Capacidad",
+            "direction": "up",
+            "body": "Los compromisos existentes se mantienen"
+          },
+          {
+            "key": "trust",
+            "label": "Confianza",
+            "direction": "up",
+            "body": "Establecer expectativas transparentes genera confianza"
+          }
         ]
       },
       "summary": {
@@ -255,7 +337,13 @@
       "rail_help_tip": "Ayuda",
       "badge_en": "ES",
       "option_label": "Opción",
-      "speech_locale": "es-ES"
+      "speech_locale": "es-ES",
+      "review_title": "Califica esta simulación",
+      "review_rating_label": "¿Cómo calificarías esta simulación?",
+      "review_experience_label": "¿Cómo fue tu experiencia?",
+      "review_improvements_label": "¿Alguna mejora sugerida?",
+      "review_submit_btn": "Enviar comentarios",
+      "review_thank_you": "¡Gracias por tus comentarios!"
     }
   },
   "ar": {
@@ -296,8 +384,16 @@
         "prompt": "ماذا ستفعل؟",
         "keyboard_hint": "اضغط [A] أو [B] لاتخاذ القرار",
         "choices": [
-          { "id": "A", "label": "A الالتزام بالموعد النهائي", "target_node_id": "outcome_a" },
-          { "id": "B", "label": "B اقتراح تجربة مرحلية", "target_node_id": "outcome_b" }
+          {
+            "id": "A",
+            "label": "A الالتزام بالموعد النهائي",
+            "target_node_id": "outcome_a"
+          },
+          {
+            "id": "B",
+            "label": "B اقتراح تجربة مرحلية",
+            "target_node_id": "outcome_b"
+          }
         ]
       },
       "outcome_a": {
@@ -308,9 +404,24 @@
         "title": "ضغط التسليم",
         "body": "يوافق العميل. يجب على فريقك إعادة التفاوض على الالتزامات الحالية.",
         "impacts": [
-          { "key": "revenue", "label": "الإيرادات", "direction": "up", "body": "تم تأمين الصفقة قصيرة المدى مع الجامعة" },
-          { "key": "capacity", "label": "القدرة", "direction": "down", "body": "الفريق مثقل بالعمل، تمت إعادة التفاوض على الالتزامات" },
-          { "key": "trust", "label": "الثقة", "direction": "mid", "body": "معرضة للخطر إذا تأخر التسليم تحت الضغط" }
+          {
+            "key": "revenue",
+            "label": "الإيرادات",
+            "direction": "up",
+            "body": "تم تأمين الصفقة قصيرة المدى مع الجامعة"
+          },
+          {
+            "key": "capacity",
+            "label": "القدرة",
+            "direction": "down",
+            "body": "الفريق مثقل بالعمل، تمت إعادة التفاوض على الالتزامات"
+          },
+          {
+            "key": "trust",
+            "label": "الثقة",
+            "direction": "mid",
+            "body": "معرضة للخطر إذا تأخر التسليم تحت الضغط"
+          }
         ]
       },
       "outcome_b": {
@@ -321,9 +432,24 @@
         "title": "خطوة أولى أصغر",
         "body": "يراجع العميل تجربة محدودة بنطاق وجدول زمني متفق عليهما.",
         "impacts": [
-          { "key": "revenue", "label": "الإيرادات", "direction": "mid", "body": "أبطأ في الإغلاق — التجربة أولاً، ثم الصفقة الكاملة لاحقاً" },
-          { "key": "capacity", "label": "القدرة", "direction": "up", "body": "تم الحفاظ على الالتزامات الحالية" },
-          { "key": "trust", "label": "الثقة", "direction": "up", "body": "تحديد التوقعات بشفافية يبني الثقة" }
+          {
+            "key": "revenue",
+            "label": "الإيرادات",
+            "direction": "mid",
+            "body": "أبطأ في الإغلاق — التجربة أولاً، ثم الصفقة الكاملة لاحقاً"
+          },
+          {
+            "key": "capacity",
+            "label": "القدرة",
+            "direction": "up",
+            "body": "تم الحفاظ على الالتزامات الحالية"
+          },
+          {
+            "key": "trust",
+            "label": "الثقة",
+            "direction": "up",
+            "body": "تحديد التوقعات بشفافية يبني الثقة"
+          }
         ]
       },
       "summary": {
@@ -384,7 +510,13 @@
       "rail_help_tip": "مساعدة",
       "badge_en": "AR",
       "option_label": "خيار",
-      "speech_locale": "ar-SA"
+      "speech_locale": "ar-SA",
+      "review_title": "قيّم هذه المحاكاة",
+      "review_rating_label": "كيف تقيّم هذه المحاكاة؟",
+      "review_experience_label": "كيف كانت تجربتك؟",
+      "review_improvements_label": "هل لديك أي اقتراحات للتحسين؟",
+      "review_submit_btn": "إرسال الملاحظات",
+      "review_thank_you": "شكراً لملاحظاتك!"
     }
   },
   "zh": {
@@ -425,8 +557,16 @@
         "prompt": "你会怎么做？",
         "keyboard_hint": "按 [A] 或 [B] 做出决定",
         "choices": [
-          { "id": "A", "label": "A 承诺按期交付", "target_node_id": "outcome_a" },
-          { "id": "B", "label": "B 提议分阶段试点", "target_node_id": "outcome_b" }
+          {
+            "id": "A",
+            "label": "A 承诺按期交付",
+            "target_node_id": "outcome_a"
+          },
+          {
+            "id": "B",
+            "label": "B 提议分阶段试点",
+            "target_node_id": "outcome_b"
+          }
         ]
       },
       "outcome_a": {
@@ -437,9 +577,24 @@
         "title": "交付压力",
         "body": "客户同意了。你的团队必须重新协商现有承诺。",
         "impacts": [
-          { "key": "revenue", "label": "收入", "direction": "up", "body": "与大学达成了短期交易" },
-          { "key": "capacity", "label": "产能", "direction": "down", "body": "团队超负荷，承诺被重新协商" },
-          { "key": "trust", "label": "信任", "direction": "mid", "body": "如果在压力下交付延误，信任面临风险" }
+          {
+            "key": "revenue",
+            "label": "收入",
+            "direction": "up",
+            "body": "与大学达成了短期交易"
+          },
+          {
+            "key": "capacity",
+            "label": "产能",
+            "direction": "down",
+            "body": "团队超负荷，承诺被重新协商"
+          },
+          {
+            "key": "trust",
+            "label": "信任",
+            "direction": "mid",
+            "body": "如果在压力下交付延误，信任面临风险"
+          }
         ]
       },
       "outcome_b": {
@@ -450,9 +605,24 @@
         "title": "更小的第一步",
         "body": "客户审查一个范围和时间表已商定的有限试点。",
         "impacts": [
-          { "key": "revenue", "label": "收入", "direction": "mid", "body": "成交较慢——先试点，后完整交易" },
-          { "key": "capacity", "label": "产能", "direction": "up", "body": "现有承诺得以保留" },
-          { "key": "trust", "label": "信任", "direction": "up", "body": "透明的期望设定建立信任" }
+          {
+            "key": "revenue",
+            "label": "收入",
+            "direction": "mid",
+            "body": "成交较慢——先试点，后完整交易"
+          },
+          {
+            "key": "capacity",
+            "label": "产能",
+            "direction": "up",
+            "body": "现有承诺得以保留"
+          },
+          {
+            "key": "trust",
+            "label": "信任",
+            "direction": "up",
+            "body": "透明的期望设定建立信任"
+          }
         ]
       },
       "summary": {
@@ -513,7 +683,13 @@
       "rail_help_tip": "帮助",
       "badge_en": "ZH",
       "option_label": "选项",
-      "speech_locale": "zh-CN"
+      "speech_locale": "zh-CN",
+      "review_title": "评价此模拟",
+      "review_rating_label": "你如何评价此模拟？",
+      "review_experience_label": "你的体验如何？",
+      "review_improvements_label": "有什么改进建议吗？",
+      "review_submit_btn": "提交反馈",
+      "review_thank_you": "感谢你的反馈！"
     }
   },
   "ne": {
@@ -554,8 +730,16 @@
         "prompt": "तपाईं के गर्नुहुन्छ?",
         "keyboard_hint": "निर्णय गर्न [A] वा [B] थिच्नुहोस्",
         "choices": [
-          { "id": "A", "label": "A समयसीमामा प्रतिबद्ध हुनुहोस्", "target_node_id": "outcome_a" },
-          { "id": "B", "label": "B चरणबद्ध पाइलट प्रस्ताव गर्नुहोस्", "target_node_id": "outcome_b" }
+          {
+            "id": "A",
+            "label": "A समयसीमामा प्रतिबद्ध हुनुहोस्",
+            "target_node_id": "outcome_a"
+          },
+          {
+            "id": "B",
+            "label": "B चरणबद्ध पाइलट प्रस्ताव गर्नुहोस्",
+            "target_node_id": "outcome_b"
+          }
         ]
       },
       "outcome_a": {
@@ -566,9 +750,24 @@
         "title": "डेलिभरी दबाब",
         "body": "ग्राहक सहमत हुन्छ। तपाईंको टोलीले विद्यमान प्रतिबद्धताहरू पुन: वार्ता गर्नुपर्छ।",
         "impacts": [
-          { "key": "revenue", "label": "राजस्व", "direction": "up", "body": "कलेजसँग छोटो अवधिको सम्झौता सुरक्षित भयो" },
-          { "key": "capacity", "label": "क्षमता", "direction": "down", "body": "टोली अत्यधिक भारित, प्रतिबद्धताहरू पुन: वार्ता गरियो" },
-          { "key": "trust", "label": "विश्वास", "direction": "mid", "body": "दबाबमा डेलिभरी ढिला भएमा जोखिममा" }
+          {
+            "key": "revenue",
+            "label": "राजस्व",
+            "direction": "up",
+            "body": "कलेजसँग छोटो अवधिको सम्झौता सुरक्षित भयो"
+          },
+          {
+            "key": "capacity",
+            "label": "क्षमता",
+            "direction": "down",
+            "body": "टोली अत्यधिक भारित, प्रतिबद्धताहरू पुन: वार्ता गरियो"
+          },
+          {
+            "key": "trust",
+            "label": "विश्वास",
+            "direction": "mid",
+            "body": "दबाबमा डेलिभरी ढिला भएमा जोखिममा"
+          }
         ]
       },
       "outcome_b": {
@@ -579,9 +778,24 @@
         "title": "सानो पहिलो कदम",
         "body": "ग्राहकले सहमत दायरा र समयरेखासहितको सीमित पाइलट समीक्षा गर्दछ।",
         "impacts": [
-          { "key": "revenue", "label": "राजस्व", "direction": "mid", "body": "बन्द हुन ढिलो — पहिले पाइलट, पछि पूर्ण सम्झौता" },
-          { "key": "capacity", "label": "क्षमता", "direction": "up", "body": "विद्यमान प्रतिबद्धताहरू सुरक्षित" },
-          { "key": "trust", "label": "विश्वास", "direction": "up", "body": "पारदर्शी अपेक्षा सेटिङले विश्वास निर्माण गर्छ" }
+          {
+            "key": "revenue",
+            "label": "राजस्व",
+            "direction": "mid",
+            "body": "बन्द हुन ढिलो — पहिले पाइलट, पछि पूर्ण सम्झौता"
+          },
+          {
+            "key": "capacity",
+            "label": "क्षमता",
+            "direction": "up",
+            "body": "विद्यमान प्रतिबद्धताहरू सुरक्षित"
+          },
+          {
+            "key": "trust",
+            "label": "विश्वास",
+            "direction": "up",
+            "body": "पारदर्शी अपेक्षा सेटिङले विश्वास निर्माण गर्छ"
+          }
         ]
       },
       "summary": {
@@ -642,7 +856,13 @@
       "rail_help_tip": "सहायता",
       "badge_en": "NE",
       "option_label": "विकल्प",
-      "speech_locale": "ne-NP"
+      "speech_locale": "ne-NP",
+      "review_title": "यो सिमुलेशनलाई मूल्याङ्कन गर्नुहोस्",
+      "review_rating_label": "तपाईं यो सिमुलेशनलाई कसरी मूल्याङ्कन गर्नुहुन्छ?",
+      "review_experience_label": "तपाईंको अनुभव कस्तो थियो?",
+      "review_improvements_label": "कुनै सुधार सुझावहरू?",
+      "review_submit_btn": "प्रतिक्रिया पठाउनुहोस्",
+      "review_thank_you": "तपाईंको प्रतिक्रियाको लागि धन्यवाद!"
     }
   },
   "sw": {
@@ -683,8 +903,16 @@
         "prompt": "Utafanya nini?",
         "keyboard_hint": "Bonyeza [A] au [B] kuamua",
         "choices": [
-          { "id": "A", "label": "A Jitolee kwa tarehe ya mwisho", "target_node_id": "outcome_a" },
-          { "id": "B", "label": "B Pendekeza jaribio la awamu", "target_node_id": "outcome_b" }
+          {
+            "id": "A",
+            "label": "A Jitolee kwa tarehe ya mwisho",
+            "target_node_id": "outcome_a"
+          },
+          {
+            "id": "B",
+            "label": "B Pendekeza jaribio la awamu",
+            "target_node_id": "outcome_b"
+          }
         ]
       },
       "outcome_a": {
@@ -695,9 +923,24 @@
         "title": "Shinikizo la utoaji",
         "body": "Mteja anakubali. Timu yako lazima ijadiliane upya ahadi zilizopo.",
         "impacts": [
-          { "key": "revenue", "label": "Mapato", "direction": "up", "body": "Mkataba wa muda mfupi umepatikana na chuo kikuu" },
-          { "key": "capacity", "label": "Uwezo", "direction": "down", "body": "Timu imezidiwa, ahadi zimejadiliwa upya" },
-          { "key": "trust", "label": "Uaminifu", "direction": "mid", "body": "Hatari ikiwa utoaji unachelewa chini ya shinikizo" }
+          {
+            "key": "revenue",
+            "label": "Mapato",
+            "direction": "up",
+            "body": "Mkataba wa muda mfupi umepatikana na chuo kikuu"
+          },
+          {
+            "key": "capacity",
+            "label": "Uwezo",
+            "direction": "down",
+            "body": "Timu imezidiwa, ahadi zimejadiliwa upya"
+          },
+          {
+            "key": "trust",
+            "label": "Uaminifu",
+            "direction": "mid",
+            "body": "Hatari ikiwa utoaji unachelewa chini ya shinikizo"
+          }
         ]
       },
       "outcome_b": {
@@ -708,9 +951,24 @@
         "title": "Hatua ndogo ya kwanza",
         "body": "Mteja anapitia jaribio dogo lenye upeo na ratiba iliyokubaliwa.",
         "impacts": [
-          { "key": "revenue", "label": "Mapato", "direction": "mid", "body": "Polepole kufunga — jaribio kwanza, mkataba kamili baadaye" },
-          { "key": "capacity", "label": "Uwezo", "direction": "up", "body": "Ahadi zilizopo zimehifadhiwa" },
-          { "key": "trust", "label": "Uaminifu", "direction": "up", "body": "Kuweka matarajio kwa uwazi kunaimarisha uaminifu" }
+          {
+            "key": "revenue",
+            "label": "Mapato",
+            "direction": "mid",
+            "body": "Polepole kufunga — jaribio kwanza, mkataba kamili baadaye"
+          },
+          {
+            "key": "capacity",
+            "label": "Uwezo",
+            "direction": "up",
+            "body": "Ahadi zilizopo zimehifadhiwa"
+          },
+          {
+            "key": "trust",
+            "label": "Uaminifu",
+            "direction": "up",
+            "body": "Kuweka matarajio kwa uwazi kunaimarisha uaminifu"
+          }
         ]
       },
       "summary": {
@@ -771,7 +1029,13 @@
       "rail_help_tip": "Msaada",
       "badge_en": "SW",
       "option_label": "Chaguo",
-      "speech_locale": "sw-KE"
+      "speech_locale": "sw-KE",
+      "review_title": "Tathmini Uigizaji Huu",
+      "review_rating_label": "Ungetathmini vipi uigizaji huu?",
+      "review_experience_label": "Uzoefu wako ulikuwaje?",
+      "review_improvements_label": "Mapendekezo yoyote ya kuboresha?",
+      "review_submit_btn": "Tuma Maoni",
+      "review_thank_you": "Asante kwa maoni yako!"
     }
   },
   "ur": {
@@ -812,8 +1076,16 @@
         "prompt": "آپ کیا کریں گے؟",
         "keyboard_hint": "فیصلہ کرنے کے لیے [A] یا [B] دبائیں",
         "choices": [
-          { "id": "A", "label": "A آخری تاریخ کا عہد کریں", "target_node_id": "outcome_a" },
-          { "id": "B", "label": "B مرحلہ وار پائلٹ تجویز کریں", "target_node_id": "outcome_b" }
+          {
+            "id": "A",
+            "label": "A آخری تاریخ کا عہد کریں",
+            "target_node_id": "outcome_a"
+          },
+          {
+            "id": "B",
+            "label": "B مرحلہ وار پائلٹ تجویز کریں",
+            "target_node_id": "outcome_b"
+          }
         ]
       },
       "outcome_a": {
@@ -824,9 +1096,24 @@
         "title": "ترسیل کا دباؤ",
         "body": "گاہک راضی ہو جاتا ہے۔ آپ کی ٹیم کو موجودہ وعدوں پر دوبارہ بات چیت کرنی ہوگی۔",
         "impacts": [
-          { "key": "revenue", "label": "آمدنی", "direction": "up", "body": "کالج کے ساتھ قلیل مدتی معاہدہ محفوظ ہو گیا" },
-          { "key": "capacity", "label": "صلاحیت", "direction": "down", "body": "ٹیم پر زیادہ بوجھ، وعدوں پر دوبارہ بات چیت ہوئی" },
-          { "key": "trust", "label": "اعتماد", "direction": "mid", "body": "دباؤ میں ترسیل میں تاخیر ہو تو خطرے میں" }
+          {
+            "key": "revenue",
+            "label": "آمدنی",
+            "direction": "up",
+            "body": "کالج کے ساتھ قلیل مدتی معاہدہ محفوظ ہو گیا"
+          },
+          {
+            "key": "capacity",
+            "label": "صلاحیت",
+            "direction": "down",
+            "body": "ٹیم پر زیادہ بوجھ، وعدوں پر دوبارہ بات چیت ہوئی"
+          },
+          {
+            "key": "trust",
+            "label": "اعتماد",
+            "direction": "mid",
+            "body": "دباؤ میں ترسیل میں تاخیر ہو تو خطرے میں"
+          }
         ]
       },
       "outcome_b": {
@@ -837,9 +1124,24 @@
         "title": "ایک چھوٹا پہلا قدم",
         "body": "گاہک متفقہ دائرہ کار اور ٹائم لائن کے ساتھ ایک محدود پائلٹ کا جائزہ لیتا ہے۔",
         "impacts": [
-          { "key": "revenue", "label": "آمدنی", "direction": "mid", "body": "بند ہونے میں سست — پہلے پائلٹ، بعد میں مکمل معاہدہ" },
-          { "key": "capacity", "label": "صلاحیت", "direction": "up", "body": "موجودہ وعدے محفوظ رہے" },
-          { "key": "trust", "label": "اعتماد", "direction": "up", "body": "شفاف توقعات طے کرنا اعتماد بناتا ہے" }
+          {
+            "key": "revenue",
+            "label": "آمدنی",
+            "direction": "mid",
+            "body": "بند ہونے میں سست — پہلے پائلٹ، بعد میں مکمل معاہدہ"
+          },
+          {
+            "key": "capacity",
+            "label": "صلاحیت",
+            "direction": "up",
+            "body": "موجودہ وعدے محفوظ رہے"
+          },
+          {
+            "key": "trust",
+            "label": "اعتماد",
+            "direction": "up",
+            "body": "شفاف توقعات طے کرنا اعتماد بناتا ہے"
+          }
         ]
       },
       "summary": {
@@ -900,7 +1202,13 @@
       "rail_help_tip": "مدد",
       "badge_en": "UR",
       "option_label": "اختیار",
-      "speech_locale": "ur-PK"
+      "speech_locale": "ur-PK",
+      "review_title": "اس سمیولیشن کی درجہ بندی کریں",
+      "review_rating_label": "آپ اس سمیولیشن کو کیسے درجہ بندی کریں گے؟",
+      "review_experience_label": "آپ کا تجربہ کیسا رہا؟",
+      "review_improvements_label": "کوئی تجاویز برائے بہتری؟",
+      "review_submit_btn": "رائے جمع کرائیں",
+      "review_thank_you": "آپ کی رائے کا شکریہ!"
     }
   }
 }

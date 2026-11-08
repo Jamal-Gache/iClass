@@ -108,6 +108,12 @@ export interface UIStrings {
   badge_en: string;
   option_label: string;
   speech_locale: string;
+  review_title: string;
+  review_rating_label: string;
+  review_experience_label: string;
+  review_improvements_label: string;
+  review_submit_btn: string;
+  review_thank_you: string;
 }
 
 export interface Media {

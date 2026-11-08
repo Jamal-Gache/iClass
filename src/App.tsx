@@ -225,6 +225,15 @@ export default function App() {
               onRestart={restart}
               audioUrl={audioMap['summary'] ?? null}
               speechEnabled={speechEnabled}
+              lang={lang}
+              ethnicity={ethnicity}
+              chosenId={chosenId}
+              reviewTitle={ui?.review_title ?? 'Rate This Simulation'}
+              reviewRatingLabel={ui?.review_rating_label ?? 'How would you rate this simulation?'}
+              reviewExperienceLabel={ui?.review_experience_label ?? 'How was your experience?'}
+              reviewImprovementsLabel={ui?.review_improvements_label ?? 'Any suggested improvements?'}
+              reviewSubmitBtn={ui?.review_submit_btn ?? 'Submit Feedback'}
+              reviewThankYou={ui?.review_thank_you ?? 'Thank you for your feedback!'}
             />
           )}
         </main>
@@ -239,6 +248,8 @@ export default function App() {
         onNext={goNext}
         currentNodeId={currentNodeId}
         totalNodes={simData ? Object.keys(simData.nodes).length : 0}
+        restartLabel={ui?.restart_btn ?? 'Restart Simulation'}
+        onRestart={restart}
       />
 
       {modal && (

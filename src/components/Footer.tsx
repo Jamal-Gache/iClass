@@ -7,12 +7,14 @@ interface FooterProps {
   onNext: () => void;
   currentNodeId: string;
   totalNodes: number;
+  restartLabel?: string;
+  onRestart?: () => void;
 }
 
 const NODE_ORDER = ['context', 'text_image', 'video', 'decision', 'outcome_a', 'outcome_b', 'summary'];
 const DOT_NODES  = ['context', 'text_image', 'video', 'decision', 'summary'];
 
-export default function Footer({ showBack, showNext, backLabel, nextLabel, onBack, onNext, currentNodeId }: FooterProps) {
+export default function Footer({ showBack, showNext, backLabel, nextLabel, onBack, onNext, currentNodeId, restartLabel, onRestart }: FooterProps) {
   return (
     <footer className="footer-bar" style={{ height: 64, padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0 }}>
       <div style={{ width: 120 }}>
@@ -44,11 +46,17 @@ export default function Footer({ showBack, showNext, backLabel, nextLabel, onBac
         })}
       </div>
 
-      <div style={{ width: 120, display: 'flex', justifyContent: 'flex-end' }}>
+      <div style={{ width: 180, display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
         {showNext && (
           <button id="next-btn" onClick={onNext} className="btn-primary">
             <span id="next-btn-text">{nextLabel}</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        )}
+        {currentNodeId === 'summary' && restartLabel && onRestart && (
+          <button id="sum-restart-btn" onClick={onRestart} className="btn-primary" style={{ whiteSpace: 'nowrap' }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-5"/></svg>
+            {restartLabel}
           </button>
         )}
       </div>
