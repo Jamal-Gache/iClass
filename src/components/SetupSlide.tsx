@@ -1,27 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import type { Lang, Ethnicity } from '../types';
 
-// Inline MOCK UI strings so Setup screen works before API call
-const SETUP_UI: Record<Lang, { sim_title: string; setup_subtitle: string; before_you_begin_title: string; before_you_begin_body: string; lang_label: string; eth_label: string; start_btn: string }> = {
-  en: {
-    sim_title: 'Leadership Decision Simulation',
-    setup_subtitle: 'Experience realistic leadership scenarios and develop critical decision-making skills in a safe, reflective environment.',
-    before_you_begin_title: 'Before You Begin',
-    before_you_begin_body: "This is a safe environment to practice. There's no single right answer — explore both paths to understand the full range of trade-offs.",
-    lang_label: 'Language',
-    eth_label: 'Character Ethnicity',
-    start_btn: 'Start Simulation',
-  },
-  es: {
-    sim_title: 'Simulación de Decisión de Liderazgo',
-    setup_subtitle: 'Experimenta escenarios de liderazgo realistas y desarrolla habilidades críticas de toma de decisiones en un entorno seguro y reflexivo.',
-    before_you_begin_title: 'Antes de comenzar',
-    before_you_begin_body: 'Este es un entorno seguro para practicar. No hay una sola respuesta correcta — explora ambos caminos para comprender toda la gama de compensaciones.',
-    lang_label: 'Idioma',
-    eth_label: 'Etnia del personaje',
-    start_btn: 'Iniciar simulación',
-  },
-};
+interface OptionItem {
+  value: string;
+  label: string;
+}
+
+interface SetupUI {
+  sim_title: string;
+  setup_subtitle: string;
+  before_you_begin_title: string;
+  before_you_begin_body: string;
+  lang_label: string;
+  eth_label: string;
+  start_btn: string;
+}
+
+interface OptionsData {
+  languages: OptionItem[];
+  ethnicities: OptionItem[];
+  available_combos: [string, string][];
+  setup_ui: SetupUI;
+}
 
 interface Props {
   lang: Lang;
@@ -33,15 +34,49 @@ interface Props {
 
 function CustomSelect<T extends string>({ value, options, onChange, id }: { value: T; options: { value: T; label: string }[]; onChange: (v: T) => void; id: string }) {
   const [open, setOpen] = useState(false);
+  const [menuStyle, setMenuStyle] = useState<React.CSSProperties>({});
+  const triggerRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const current = options.find(o => o.value === value);
+
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e: MouseEvent) => {
+      const inTrigger = triggerRef.current?.contains(e.target as Node);
+      const inMenu = menuRef.current?.contains(e.target as Node);
+      if (!inTrigger && !inMenu) setOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [open]);
+
+  const handleOpen = () => {
+    if (triggerRef.current) {
+      const rect = triggerRef.current.getBoundingClientRect();
+      const spaceBelow = window.innerHeight - rect.bottom;
+      const approxMenuH = Math.min(220, options.length * 44);
+      const openUp = spaceBelow < approxMenuH + 10;
+      setMenuStyle({
+        position: 'fixed',
+        ...(openUp
+          ? { bottom: window.innerHeight - rect.top + 6 }
+          : { top: rect.bottom + 6 }),
+        left: rect.left,
+        width: rect.width,
+        zIndex: 9999,
+      });
+    }
+    setOpen(o => !o);
+  };
+
   return (
-    <div className={`csel${open ? ' open' : ''}`} id={id}>
-      <div className="csel-trigger" onClick={() => setOpen(o => !o)}>
+    <div ref={triggerRef} className={`csel${open ? ' open' : ''}`} id={id}>
+      <div className="csel-trigger" onClick={handleOpen}>
         <span className="csel-value">{current?.label}</span>
         <svg className="csel-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
-      {open && (
-        <div className="csel-menu">
+      {open && createPortal(
+        <div ref={menuRef} className="csel-menu" style={{ ...menuStyle, display: 'block' }}>
           {options.map(o => (
             <div
               key={o.value}
@@ -51,14 +86,49 @@ function CustomSelect<T extends string>({ value, options, onChange, id }: { valu
               {o.label}
             </div>
           ))}
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
 }
 
 export default function SetupSlide({ lang, ethnicity, onLangChange, onEthnicityChange, onStart }: Props) {
-  const u = SETUP_UI[lang];
+  const [options, setOptions] = useState<OptionsData | null>(null);
+
+  useEffect(() => {
+    fetch(`/api/options?lang=${lang}`)
+      .then(r => r.json())
+      .then((data: OptionsData) => {
+        setOptions(data);
+        // If current ethnicity is not available for selected language, switch to first available
+        const available = data.ethnicities
+          .filter(e => data.available_combos.some(([eth, lng]) => eth === e.value && lng === lang))
+          .map(e => e.value);
+        if (available.length > 0 && !available.includes(ethnicity)) {
+          onEthnicityChange(available[0] as Ethnicity);
+        }
+      })
+      .catch(() => {});
+  }, [lang]);
+
+  const u = options?.setup_ui;
+
+  // Filter ethnicities to only those with available video for current language
+  const availableEthnicities = options
+    ? options.ethnicities.filter(e =>
+        options.available_combos.some(([eth, lng]) => eth === e.value && lng === lang)
+      )
+    : [];
+
+  if (!u) {
+    return (
+      <div className="main-card slide-enter" style={{ maxWidth: 1020, width: '100%', padding: 60, textAlign: 'center' }}>
+        <p style={{ color: 'var(--text-3)' }}>Loading...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="main-card slide-enter" style={{ maxWidth: 1020, width: '100%', padding: 60 }}>
       <div style={{ textAlign: 'center', marginBottom: 36 }}>
@@ -78,7 +148,7 @@ export default function SetupSlide({ lang, ethnicity, onLangChange, onEthnicityC
           <CustomSelect<Lang>
             id="lang-select"
             value={lang}
-            options={[{ value: 'en', label: 'English' }, { value: 'es', label: 'Español' }]}
+            options={(options?.languages ?? []).map(o => ({ value: o.value as Lang, label: o.label }))}
             onChange={onLangChange}
           />
         </div>
@@ -87,7 +157,7 @@ export default function SetupSlide({ lang, ethnicity, onLangChange, onEthnicityC
           <CustomSelect<Ethnicity>
             id="eth-select"
             value={ethnicity}
-            options={[{ value: 'black', label: 'Black' }, { value: 'east_asian', label: 'East Asian' }]}
+            options={availableEthnicities.map(o => ({ value: o.value as Ethnicity, label: o.label }))}
             onChange={onEthnicityChange}
           />
         </div>
